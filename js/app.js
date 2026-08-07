@@ -21,6 +21,8 @@
     initParticles();
     initRipples();
     initPubThumbnails();
+    initLoader();
+    initKonami();
   });
 
   // ---- Publication Thumbnail Click Popup ----
@@ -147,6 +149,21 @@
             start: "top top",
             end: "bottom bottom",
             scrub: 0.3
+          }
+        });
+      }
+
+      // Parallax Background Depth
+      var particlesBg = document.getElementById('particles-bg');
+      if (particlesBg) {
+        gsap.to(particlesBg, {
+          y: 150, // Moves slightly downwards as you scroll down
+          ease: "none",
+          scrollTrigger: {
+            trigger: document.body,
+            start: "top top",
+            end: "bottom bottom",
+            scrub: true
           }
         });
       }
@@ -430,18 +447,6 @@
             !e.target.closest('#mobile-menu-btn')) {
           document.body.classList.remove('sidebar-open');
           menuBtn.setAttribute('aria-expanded', 'false');
-        }
-      });
-    }
-
-    // Desktop Collapse Toggle — uses CSS variable --sidebar-w via .sidebar-collapsed
-    var collapseBtn = document.getElementById('sidebar-collapse-btn');
-    if (collapseBtn) {
-      collapseBtn.addEventListener('click', function() {
-        if (window.innerWidth > 820) {
-          var isCollapsed = document.body.classList.toggle('sidebar-collapsed');
-          collapseBtn.setAttribute('aria-label', isCollapsed ? 'Expand sidebar' : 'Collapse sidebar');
-          collapseBtn.setAttribute('title', isCollapsed ? 'Expand sidebar' : 'Collapse sidebar');
         }
       });
     }
@@ -810,14 +815,27 @@
     });
 
     // Hover effect on interactive elements
-    var interactives = document.querySelectorAll('a, button, .card, input, textarea, select, [role="button"]');
+    var interactives = document.querySelectorAll('a, button, .card, input, textarea, select, [role="button"], .pub-thumb-wrap');
     interactives.forEach(function(el) {
       el.addEventListener('mouseenter', function() {
         follower.classList.add('hover-active');
         gsap.to(cursor, { scale: 0.5, duration: 0.2 });
+        
+        // Custom Text Labels for Cursor
+        var text = el.dataset.cursor || '';
+        if (el.tagName.toLowerCase() === 'a' && !text) text = 'Go';
+        if (el.classList.contains('card') && !text) text = 'View';
+        if (el.classList.contains('pub-thumb-wrap') && !text) text = 'Open';
+        
+        if (text) {
+          follower.setAttribute('data-cursor-text', text);
+        } else {
+          follower.removeAttribute('data-cursor-text');
+        }
       });
       el.addEventListener('mouseleave', function() {
         follower.classList.remove('hover-active');
+        follower.removeAttribute('data-cursor-text');
         gsap.to(cursor, { scale: 1, duration: 0.2 });
       });
     });
@@ -1055,6 +1073,60 @@
         }
       });
     });
+  }
+  // ==========================================
+  // LOADER & EASTER EGGS
+  // ==========================================
+
+  function initLoader() {
+    var loader = document.getElementById('global-loader');
+    if (!loader) return;
+    
+    // Hide loader on window load or fallback to 1.5s
+    var hideLoader = function() {
+      if (loader.classList.contains('hidden')) return;
+      loader.classList.add('hidden');
+      setTimeout(function() { loader.style.display = 'none'; }, 800);
+      
+      // Trigger SFX boot sound if enabled
+      if (typeof window.sfx !== 'undefined' && localStorage.getItem('__sound_enabled__') === 'true') {
+        window.sfx.successChime();
+      }
+    };
+
+    window.addEventListener('load', hideLoader);
+    setTimeout(hideLoader, 1500); // Fallback max loading time
+  }
+
+  function initKonami() {
+    var konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+    var konamiPosition = 0;
+    
+    document.addEventListener('keydown', function(e) {
+      if (e.key === konamiCode[konamiPosition]) {
+        konamiPosition++;
+        if (konamiPosition === konamiCode.length) {
+          activateEasterEgg();
+          konamiPosition = 0;
+        }
+      } else {
+        konamiPosition = 0;
+      }
+    });
+    
+    function activateEasterEgg() {
+      if (typeof window.sfx !== 'undefined') window.sfx.glitch();
+      document.body.style.transition = 'filter 0.1s ease';
+      document.body.style.filter = 'hue-rotate(90deg) invert(1) contrast(150%)';
+      setTimeout(function() {
+        document.body.style.filter = '';
+        setTimeout(function() {
+          if (typeof window.showToast === 'function') {
+            window.showToast("Quantum Overdrive Activated.", "success");
+          }
+        }, 300);
+      }, 500);
+    }
   }
 
 })();

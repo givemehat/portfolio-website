@@ -23,7 +23,7 @@
   <!-- Preload fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&family=Fira+Code:wght@400;500&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/tokens.css">
@@ -69,6 +69,14 @@
   </script>
 </head>
 <body>
+  <!-- Global Loader -->
+  <div id="global-loader">
+    <div class="loader-content">
+      <div class="loader-logo">RS</div>
+      <div class="loader-progress"></div>
+    </div>
+  </div>
+
   <!-- Scroll Progress Bar -->
   <div id="scroll-progress" class="scroll-progress"></div>
 
@@ -84,10 +92,6 @@
 </div>
 
 <!-- ========== SIDEBAR NAVIGATION ========== -->
-<button class="icon-btn" id="sidebar-collapse-btn" title="Toggle sidebar" aria-label="Toggle sidebar" style="position: fixed; top: 16px; right: 20px; z-index: 2000; width: 44px; height: 44px; border-radius: 50%; background-color: var(--bg-alt); border: 1px solid var(--line); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); display: flex; justify-content: center; align-items: center; cursor: pointer;">
-  <svg class="collapse-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-</button>
-
 <aside id="sidebar" aria-label="Sidebar navigation">
   <div class="sidebar-profile" style="padding-top: 32px;">
     <img id="profile-img" src="assets/profile.jpg" alt="Rajnish Singh" width="100" height="100" loading="eager">
@@ -144,10 +148,13 @@
   </div>
   
   <div class="sidebar-footer">
+    <button class="icon-btn sound-toggle-btn" title="Toggle Sound" aria-label="Toggle Sound">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+    </button>
     <button class="icon-btn" id="theme-toggle" title="Toggle theme" aria-label="Toggle dark mode">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
     </button>
-    <span style="font-size: 12px; color: var(--text-dim);">© 2026</span>
+    <span id="admin-trigger" role="button" tabindex="0" style="font-size: 12px; color: var(--text-dim); cursor: pointer;" title="Admin Login">© 2026</span>
   </div>
 </aside>
 
@@ -835,7 +842,7 @@
       <div class="connect-intro">
         <div class="eyebrow" id="connect-eyebrow">Connect</div>
         <h2 class="section-title" id="connect-title">Let's build something.</h2>
-        <p class="section-sub" id="connect-sub">Whether it's a research collaboration, hiring inquiry, or just geeking out over quantum ML, my inbox is open.</p>
+        <p class="section-sub" id="connect-sub">Whether it's a research collaboration, hiring inquiry, or just geeking out over quantum ML, my inbox is open. Please write me an email—it is the best way to connect with me.</p>
         
         <div class="connect-actions">
           <a href="mailto:rajnisihsingh@gmail.com" class="btn btn-primary btn-icon">
@@ -915,10 +922,10 @@
       
       <div style="position: relative; z-index: 1;">
         <h2 style="font-family: var(--font-display); font-size: var(--fs-h2); color: #D4AF37; margin-bottom: 24px; display: flex; align-items: center; justify-content: center; gap: 12px;">
-          <span style="font-size: 1.2em;">🥃</span> Buy Me a Cigar & a Whiskey <span style="font-size: 1.2em;">🚬</span>
+          <span style="font-size: 1.2em;">☕️</span> Buy Me Coffee & a Wrap <span style="font-size: 1.2em;">🌯</span>
         </h2>
         <p style="color: var(--text-dim); font-size: var(--fs-body); line-height: 1.8; max-width: 600px; margin: 0 auto 32px;">
-          If you've learned something from my work, enjoyed my projects, or simply want to support my journey in research, technology, and innovation, you can buy me a cigar and a whiskey. Every contribution helps me invest more time in building, learning, and sharing knowledge.
+          If you've learned something from my work, enjoyed my projects, or simply want to support my journey in research, technology, and innovation, you can buy me coffee and a wrap. Every contribution helps me invest more time in building, learning, and sharing knowledge.
         </p>
         <button class="btn btn-primary support-btn" onclick="openModal('support-modal-overlay')" style="background: linear-gradient(135deg, #D4AF37, #AA8C2C); color: #000; border: none; font-weight: bold; padding: 14px 32px; border-radius: 30px; font-size: 16px; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); cursor: pointer; transition: all 0.3s;">
           Support My Journey
@@ -957,7 +964,7 @@
     <!-- Header -->
     <p style="font-family:var(--font-mono);font-size:11px;color:#D4AF37;letter-spacing:0.15em;text-transform:uppercase;margin:0 0 10px;">Support the Journey</p>
     <h3 id="support-modal-title" style="font-family:var(--font-display);font-size:20px;color:#fff;margin:0 0 8px;font-weight:700;">
-      🥃 Buy Me a Cigar &amp; a Whiskey
+      ☕️ Buy Me Coffee &amp; a Wrap
     </h3>
     <p style="color:#888;font-size:13px;line-height:1.6;margin:0 0 24px;max-width:300px;margin-left:auto;margin-right:auto;">
       This is your opportunity to connect with me. Scan, support, and let's connect together — because time is the most valuable asset I have, and your support allows me to invest more of it in you.
@@ -1026,7 +1033,7 @@
   function handleDonationComplete() {
     closeModal('support-modal-overlay');
     if (window.showToast) {
-      window.showToast('Thank you so much for your support! You are amazing 🥃❤️', 'success');
+      window.showToast('Thank you so much for your support! You are amazing ☕️🌯❤️', 'success');
     }
   }
 </script>
@@ -1036,7 +1043,7 @@
 <!-- ========== FOOTER ========== -->
 <footer class="container" role="contentinfo">
   <div class="f-left">
-    <span><span id="admin-trigger" role="button" tabindex="0" style="cursor:pointer;" title="">©</span> <span id="year"></span> Rajnish Singh. Built with care.</span>
+    <span>© <span id="year"></span> Rajnish Singh. Built with care.</span>
   </div>
   <div class="f-right">
     <!-- Removed duplicate footer visitors text -->
@@ -1604,6 +1611,7 @@
 
 <!-- ========== SCRIPTS ========== -->
 <script src="js/data.js" defer></script>
+<script src="js/sfx.js" defer></script>
 <script src="js/gamification.js" defer></script>
 <script src="js/certificates.js" defer></script>
 <script src="js/app.js" defer></script>

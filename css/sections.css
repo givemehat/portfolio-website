@@ -177,18 +177,38 @@
 }
 
 /* ---- Hero ---- */
-.hero { padding: 64px 0 60px; position: relative; overflow: hidden; }
-.hero-grid { position: relative; max-width: 680px; }
-.hero h1 { font-size: 44px; line-height: 1.1; margin-bottom: 16px; padding-right: 110px; }
-.text-violet { color: var(--violet); }
+.hero { padding: 96px 0 80px; position: relative; overflow: hidden; }
+.hero-grid { position: relative; max-width: 800px; }
+.hero h1 { 
+  font-size: var(--fs-display); 
+  font-weight: var(--fw-extrabold);
+  letter-spacing: var(--tracking-tighter);
+  line-height: var(--lh-tight); 
+  margin-bottom: 24px; 
+  padding-right: 120px;
+}
+.text-violet { color: var(--text); }
 #typed-role {
-  font-family: var(--font-mono); color: var(--cyan); font-size: 16px;
-  min-height: 24px; min-width: 350px; display: block; margin-bottom: 20px;
+  font-family: var(--font-display); 
+  font-weight: var(--fw-bold);
+  color: var(--text); 
+  font-size: var(--fs-h2);
+  line-height: var(--lh-tight);
+  min-height: 48px; min-width: 350px; display: block; margin-bottom: 24px;
   white-space: nowrap; overflow: hidden;
 }
 #typed-role::after { content: '▍'; animation: blink 1s step-start infinite; color: var(--cyan); }
-.hero .lede { color: var(--text-dim); font-size: 15.5px; max-width: 520px; margin-bottom: 28px; line-height: 1.65; }
-.btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+.hero .lede { 
+  color: var(--text-dim); 
+  font-size: 20px; 
+  max-width: 650px; 
+  margin-bottom: 40px; 
+  line-height: var(--lh-base);
+  font-weight: var(--fw-regular);
+}
+.btn-row { 
+  display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; 
+}
 .hero-visual {
   position: absolute; top: 0; right: 0;
   display: flex; flex-direction: column; align-items: center; gap: 8px;
@@ -398,12 +418,22 @@ footer {
   transform: translateY(-4px);
 }
 
-/* ===== CERTIFICATIONS & PROJECTS GRIDS ===== */
+/* ===== ASYMMETRIC BENTO GRIDS ===== */
 .cert-grid, .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 30px;
-  margin-top: 32px;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+.cert-card, .project-card {
+  grid-column: span 12;
+}
+@media (min-width: 768px) {
+  /* Bento pattern: Large-Small, Small-Large */
+  .cert-card:nth-child(4n+1), .project-card:nth-child(4n+1) { grid-column: span 8; }
+  .cert-card:nth-child(4n+2), .project-card:nth-child(4n+2) { grid-column: span 4; }
+  .cert-card:nth-child(4n+3), .project-card:nth-child(4n+3) { grid-column: span 4; }
+  .cert-card:nth-child(4n+4), .project-card:nth-child(4n+4) { grid-column: span 8; }
 }
 /* Sibling dimming for certificates grid */
 .cert-grid:has(.cert-featured-card:hover) .cert-featured-card:not(:hover) {

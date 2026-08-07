@@ -90,49 +90,6 @@ body.sidebar-collapsed .sidebar-header {
   transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-body.sidebar-collapsed #sidebar-collapse-btn .collapse-icon {
-  transform: rotate(180deg);
-}
-
-/* ── Collapsed state (desktop) ────────────────────────────────── */
-body.sidebar-collapsed #sidebar {
-  transform: translateX(-100%);
-}
-
-body.sidebar-collapsed #main-content,
-body.sidebar-collapsed footer {
-  margin-left: 0 !important;
-  width: 100% !important;
-}
-
-/* ── Tooltip on icon-only collapsed state ─────────────────────── */
-body.sidebar-collapsed .nav-links a {
-  position: relative;
-}
-body.sidebar-collapsed .nav-links a::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  left: calc(var(--sidebar-collapsed-w) + 6px);
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--card);
-  border: 1px solid var(--line);
-  color: var(--text);
-  font-size: 12px;
-  font-weight: 600;
-  padding: 6px 12px;
-  border-radius: 6px;
-  white-space: nowrap;
-  box-shadow: var(--shadow-lg);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 150ms ease;
-  z-index: 999;
-}
-body.sidebar-collapsed .nav-links a:hover::after {
-  opacity: 1;
-}
-
 /* ── Nav links: consistent spacing & states ───────────────────── */
 .nav-links {
   display: flex;

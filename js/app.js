@@ -762,13 +762,12 @@
         resultsGrid.innerHTML = '';
         data.results.forEach(function(res) {
           var card = document.createElement('div');
-          card.className = 'cert-featured-card';
-          var titleStr = res.title ? '<h4 style="margin: 10px 0 0 0; text-align: center; color: var(--text-dim); font-size: 14px;">' + res.title + '</h4>' : '';
+          card.className = 'result-card';
+          var titleStr = res.title ? '<div class="result-info"><h4>' + res.title + '</h4></div>' : '';
           card.innerHTML = 
-            '<div class="cert-img-container" style="cursor: zoom-in; display: flex; flex-direction: column; align-items: center; padding-bottom: 10px;">' +
-              '<img src="' + res.image + '" alt="' + (res.title || 'Result') + '" loading="lazy" style="width: 100%; height: auto; border-radius: 4px;">' +
-              titleStr +
-            '</div>';
+            '<div class="result-img-container">' +
+              '<img src="' + res.image + '" alt="' + (res.title || 'Result') + '" loading="lazy">' +
+            '</div>' + titleStr;
             
           card.addEventListener('click', function() {
             var lightbox = document.getElementById('cert-lightbox');

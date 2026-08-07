@@ -48,9 +48,17 @@ window.appData.certifications = [];
 
 window.appData.featuredProjects = [
   {
+    title: "AI/ML Capstone Project - IIT Guwahati",
+    date: "Completed",
+    description: "A comprehensive Machine Learning and AI capstone consisting of 5 major tasks: Predictive Maintenance Classification (LogReg, Decision Tree), Gas Turbine Regression, Palmer Penguins Clustering (K-Means), and Advanced Computer Vision using a fine-tuned YOLOv8n on VisDrone2019 and a custom CNN on Fashion MNIST.",
+    link: "https://drive.google.com/drive/u/1/folders/1zGVdV4yGSP7T_nODbi_nbBGst107jPBY",
+    image: "assets/aiml_capstone.jpg",
+    skills: ["Machine Learning", "YOLOv8", "CNN", "K-Means", "Regression"]
+  },
+  {
     title: "Quantum Dissipative Market Simulator (QDMS)",
     date: "May 2026 – Present",
-    description: "Capstone Project as an AI/ML Intern at IIT Guwahati. QDMS models financial liquidity cascades and shock propagation via Open Quantum System dynamics. It solves the Lindblad Master Equation using Qiskit/QuTiP to simulate market crashes. Built with a FastAPI backend, ML predictors (LSTM/XGBoost), and a React 19 dashboard.",
+    description: "QDMS models financial liquidity cascades and shock propagation via Open Quantum System dynamics. It solves the Lindblad Master Equation using Qiskit/QuTiP to simulate market crashes. Built with a FastAPI backend, ML predictors (LSTM/XGBoost), and a React 19 dashboard.",
     link: "https://github.com/givemehat/Quantum-Dissipative-Market-Simulator-QDMS-",
     image: "assets/qdms_thumbnail.jpg",
     skills: ["Quantum Computing", "Qiskit", "FastAPI", "React 19"]

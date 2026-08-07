@@ -208,6 +208,50 @@
         }
       });
       
+      // Reveal for stack-container domains
+      gsap.utils.toArray('.stack-container').forEach(function(grid) {
+        var cards = grid.querySelectorAll('.domain-card, .bento-card');
+        if (cards.length > 0) {
+          gsap.fromTo(cards,
+            { y: 50, opacity: 0 },
+            {
+              scrollTrigger: {
+                trigger: grid,
+                start: "top 85%",
+              },
+              y: 0,
+              opacity: 1,
+              stagger: 0.1,
+              duration: 0.8,
+              ease: "power3.out"
+            }
+          );
+        }
+      });
+      
+      // Reveal for Premium Expertise Section (Light Mode)
+      var expertiseSection = document.querySelector('.premium-expertise-section');
+      if (expertiseSection) {
+        var expertiseElements = expertiseSection.querySelectorAll('.expertise-eyebrow, .expertise-title, .expertise-subtitle, .bento-light-card');
+        gsap.fromTo(expertiseElements,
+          { y: 40, opacity: 0 },
+          {
+            scrollTrigger: {
+              trigger: expertiseSection,
+              start: "top 80%",
+            },
+            y: 0,
+            opacity: 1,
+            stagger: 0.05,
+            duration: 0.8,
+            ease: "power3.out"
+          }
+        );
+      }
+      
+      // Removed GSAP animation for Connect section because it causes opacity bugs when the tab is initially hidden.
+
+      
       // Decode text effect for section titles
       gsap.utils.toArray('h2.section-title').forEach(function(title) {
         var originalText = title.textContent;
@@ -381,6 +425,22 @@
         history.pushState(null, '', '#' + sectionId);
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+      // Refresh ScrollTrigger to recalculate offsets for new visible elements
+      if (typeof window.ScrollTrigger !== 'undefined') {
+        setTimeout(function() { window.ScrollTrigger.refresh(); }, 50);
+      }
+      
+      // GSAP Animation for Connect Section
+      if (sectionId === 'connect' && window.gsap) {
+        var connectElements = document.querySelectorAll('#panel-connect .cl-eyebrow, #panel-connect .cl-headline, #panel-connect .cl-desc, #panel-connect .cl-actions, #panel-connect .cl-feature-card, #panel-connect .cl-socials a, #panel-connect .cl-form-card');
+        if (connectElements.length > 0) {
+          gsap.fromTo(connectElements, 
+            { y: 30, opacity: 0 }, 
+            { y: 0, opacity: 1, duration: 0.7, stagger: 0.05, ease: "power3.out", clearProps: "all" }
+          );
+        }
+      }
     }
 
     // Expose for other scripts
@@ -507,6 +567,18 @@
   function initContactForm() {
     var form = document.getElementById('contact-form');
     if (!form) return;
+    
+    // Character counter logic
+    var messageInput = document.getElementById('contact-message');
+    var charCounter = document.getElementById('msg-counter');
+    if (messageInput && charCounter) {
+      messageInput.addEventListener('input', function() {
+        var currentLength = this.value.length;
+        var maxLength = this.getAttribute('maxlength') || 1000;
+        charCounter.textContent = currentLength + ' / ' + maxLength;
+      });
+    }
+
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       var nameInput = document.getElementById('contact-name');
@@ -530,8 +602,8 @@
       }
 
       // Simulate loading state
-      var originalBtnText = submitBtn.innerText;
-      submitBtn.innerText = 'Sending...';
+      var originalBtnHTML = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<span class="btn-text">Sending...</span><span class="btn-icon">↺</span>';
       submitBtn.disabled = true;
 
       setTimeout(function() {
@@ -542,7 +614,8 @@
         try { localStorage.setItem('__site_messages__', JSON.stringify(messages)); } catch(e) {}
         
         form.reset();
-        submitBtn.innerText = originalBtnText;
+        if (charCounter) charCounter.textContent = '0 / 1000';
+        submitBtn.innerHTML = originalBtnHTML;
         submitBtn.disabled = false;
         
         window.showToast && window.showToast('Message sent! Thank you, ' + name + '.', 'success');
@@ -665,51 +738,77 @@
         });
       }
     }
-
-    // 2. Fetch and Render Projects (Featured + GitHub)
-    var projectsContainer = document.querySelector('#panel-projects .section-alt .container');
+       // 2. Fetch and Render Projects (Featured + GitHub)
+    var projectsGrid = document.getElementById('projects-grid');
     var githubUser = data.githubUser;
     
-    if (projectsContainer) {
-      projectsContainer.innerHTML = '<div class="section-header"><h2 class="title">Featured <span class="highlight">Projects</span></h2><p class="subtitle">Highlighting major research and development work.</p></div>';
+    if (projectsGrid) {
+      projectsGrid.innerHTML = '';
       
       // Render Featured Projects
       if (data.featuredProjects && data.featuredProjects.length > 0) {
-        var featuredGrid = document.createElement('div');
-        featuredGrid.className = 'project-grid';
-        featuredGrid.style.marginBottom = '60px'; // Space before GitHub repos
-        
         data.featuredProjects.forEach(function(fp) {
-          var card = document.createElement('a');
-          card.href = fp.link;
-          card.target = '_blank';
-          card.rel = 'noopener noreferrer';
-          card.className = 'project-card';
-          card.style.borderColor = 'rgba(0, 229, 255, 0.4)'; // Highlight featured
+          var card = document.createElement('article');
+          card.className = 'card card--project';
+          card.setAttribute('data-project', fp.title.toLowerCase().replace(/[^a-z0-9]+/g, '-'));
           
+          var coverHtml = '';
+          if (fp.image) {
+            coverHtml = '<div class="card-cover card-cover--image" style="background-image: url(\'' + fp.image + '\'); background-size: cover; background-repeat: no-repeat; background-position: center; background-color: #ffffff;" aria-hidden="true"></div>';
+          } else if (fp.gradient) {
+            coverHtml = '<div class="card-cover ' + fp.gradient + '" aria-hidden="true"></div>';
+          } else {
+            coverHtml = '<div class="card-cover card-cover--gradient-1" aria-hidden="true"></div>';
+          }
+
+          var skillsHtml = '<div class="tech-stack">';
+          if (fp.skills && fp.skills.length > 0) {
+            fp.skills.forEach(function(s) {
+              skillsHtml += '<span class="tech-badge">' + s + '</span>';
+            });
+          }
+          skillsHtml += '</div>';
+
+          var statusHtml = '<div class="card-meta"><span class="card-status card-status--active">' + fp.date + '</span></div>';
+
           card.innerHTML = 
-            '<h3 style="color:var(--cyan);">' + fp.title + '</h3>' +
-            '<div class="cert-date" style="margin-bottom:8px;">' + fp.date + '</div>' +
-            '<div class="project-desc" style="font-size:14px; margin-bottom:20px;">' + fp.description + '</div>' +
-            '<div class="cert-skills">Skills: ' + fp.skills.join(', ') + '</div>';
-          featuredGrid.appendChild(card);
+            coverHtml +
+            '<span class="tag">Featured</span>' +
+            '<h3>' + fp.title + '</h3>' +
+            '<p>' + fp.description + '</p>' +
+            skillsHtml +
+            statusHtml +
+            '<div class="links">' +
+              '<a href="' + fp.link + '" target="_blank" rel="noopener noreferrer">' +
+                '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> ' +
+                'Link' +
+              '</a>' +
+              '<button class="link-btn" data-action="view-details" aria-label="View project details">View details →</button>' +
+            '</div>';
+            
+          projectsGrid.appendChild(card);
         });
-        projectsContainer.appendChild(featuredGrid);
       }
 
-      // Render GitHub Header
+      // Render GitHub Repos
+      var ghContainer = document.createElement('div');
+      ghContainer.style.gridColumn = '1 / -1';
+      ghContainer.style.marginTop = '40px';
+      
       var ghHeader = document.createElement('div');
       ghHeader.className = 'section-header';
       ghHeader.innerHTML = '<h2 class="title">GitHub <span class="highlight">Repositories</span></h2><p class="subtitle">Live public projects fetched from GitHub.</p>';
-      projectsContainer.appendChild(ghHeader);
+      ghContainer.appendChild(ghHeader);
 
-      var grid = document.createElement('div');
-      grid.className = 'project-grid';
-      grid.id = 'github-grid';
-      projectsContainer.appendChild(grid);
+      var ghGrid = document.createElement('div');
+      ghGrid.className = 'project-grid';
+      ghGrid.id = 'github-grid';
+      ghContainer.appendChild(ghGrid);
+      
+      projectsGrid.appendChild(ghContainer);
       
       if (githubUser) {
-        grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: var(--text-dim); padding: 40px;">Initializing uplink to GitHub API... Fetching repositories...</div>';
+        ghGrid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: var(--text-dim); padding: 40px;">Initializing uplink to GitHub API... Fetching repositories...</div>';
         
         fetch('https://api.github.com/users/' + githubUser + '/repos?per_page=100&sort=updated')
           .then(function(response) {
@@ -717,11 +816,11 @@
             return response.json();
           })
           .then(function(repos) {
-            grid.innerHTML = '';
+            ghGrid.innerHTML = '';
             var sortedRepos = repos.sort(function(a, b) { return b.stargazers_count - a.stargazers_count; });
             
             if(sortedRepos.length === 0) {
-              grid.innerHTML = '<div style="grid-column: 1/-1; color: var(--text-dim);">No public repositories found.</div>';
+              ghGrid.innerHTML = '<div style="grid-column: 1/-1; color: var(--text-dim);">No public repositories found.</div>';
               return;
             }
 
@@ -746,16 +845,17 @@
                   '<span>⭐ ' + repo.stargazers_count + '</span>' +
                   '<span>🍴 ' + repo.forks_count + '</span>' +
                 '</div>';
-              grid.appendChild(card);
+              ghGrid.appendChild(card);
             });
           })
           .catch(function(err) {
             console.error(err);
-            grid.innerHTML = '<div style="grid-column: 1/-1; color: #ff3366; text-align:center; padding:40px;">Error fetching repositories: ' + err.message + '. Please try again later.</div>';
+            ghGrid.innerHTML = '<div style="grid-column: 1/-1; color: var(--text-dim); text-align:center; padding:40px; background: rgba(255,255,255,0.02); border-radius: 8px; border: 1px dashed var(--line);">Check out my full repository history directly on <a href="https://github.com/' + githubUser + '" target="_blank" rel="noopener noreferrer" style="color: var(--cyan); text-decoration: underline;">GitHub</a>.</div>';
           });
       }
-      }
-      
+    }
+    
+
       // 3. Render Results Gallery
       var resultsGrid = document.getElementById('results-grid');
       if (resultsGrid && data.results && data.results.length > 0) {
@@ -787,7 +887,7 @@
       }
 
       // 4. Bento Grid Spotlight Effect
-      var bentoCards = document.querySelectorAll('.bento-card');
+      var bentoCards = document.querySelectorAll('.bento-card, .domain-card');
       bentoCards.forEach(function(card) {
         card.addEventListener('mousemove', function(e) {
           var rect = card.getBoundingClientRect();

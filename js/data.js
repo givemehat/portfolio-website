@@ -111,6 +111,15 @@ window.appData.featuredProjects = [
     description: "Selected as a Contributor for Social Summer of Code (SSoC) Season 5, India's largest open source program. Contributing to real projects, learning from mentors, and shipping code that matters.",
     link: "https://lnkd.in/gHNU23YS",
     skills: ["Open Source", "SSoC", "Mentorship"]
+  },
+  {
+    title: "Qiskit Community Tools",
+    date: "Active",
+    description: "Open-source contributions to Qiskit ecosystem tooling and educational resources.",
+    link: "https://github.com/givemehat",
+    image: "", 
+    gradient: "card-cover--gradient-3",
+    skills: ["Python", "Qiskit", "Jupyter"]
   }
 ];
 

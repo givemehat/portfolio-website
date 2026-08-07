@@ -498,6 +498,7 @@ footer {
 
 /* ===== FEATURED CERTIFICATES ===== */
 .cert-featured-card {
+  grid-column: span 12;
   background: var(--card);
   border: 1px solid var(--violet);
   border-radius: 12px;
@@ -507,6 +508,16 @@ footer {
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, opacity 0.4s, filter 0.4s;
   box-shadow: 0 4px 20px rgba(144, 98, 255, 0.1);
   cursor: pointer;
+}
+@media (min-width: 768px) {
+  .cert-featured-card {
+    grid-column: span 6;
+  }
+}
+@media (min-width: 1024px) {
+  .cert-featured-card {
+    grid-column: span 4;
+  }
 }
 .cert-featured-card:hover {
   transform: translateY(-10px) scale(1.02);

@@ -66,6 +66,7 @@ window.appData.featuredProjects = [
   {
     title: "DevPulse - CLI Productivity Tracker",
     date: "Published / v1.0.4",
+    image: "assets/projects/devpulse.jpg",
     description: "A lightweight, distraction-free terminal-based productivity tracker. Features include a GitHub-style Activity Heatmap, Session Timer, Coding Streaks, Weekly Summaries, and local SQLite storage. Install via `pip install raj-devpulse-cli` and run `devpulse stats`.",
     link: "https://pypi.org/project/raj-devpulse-cli/",
     skills: ["Python", "CLI", "SQLite", "Productivity"]
@@ -73,6 +74,7 @@ window.appData.featuredProjects = [
   {
     title: "Human Temporal Prediction Under Uncertainty",
     date: "Jul 2026",
+    image: "assets/projects/human_temporal.jpg",
     description: "Data collected from 6 participants across UNO rounds to analyze behavior under uncertainty. Evaluated 'Experienced' vs 'No Mercy' precursor rounds using statistical and ML models. This served as a pilot/proof of concept for predicting temporal outcomes and human decision-making under hidden information constraints.",
     link: "#",
     skills: ["Cognitive Neuroscience", "Human Psychology", "Machine Learning"]
@@ -80,6 +82,7 @@ window.appData.featuredProjects = [
   {
     title: "Restoring Damaged Indian Folk Art Using Deep Learning: An AI-Driven Framework for Cultural Heritage Preservation",
     date: "Under Review",
+    image: "assets/projects/indian_art.jpg",
     description: "Research paper on restoring damaged Indian folk art using deep learning. Co-authored with Utkrisht Patel.",
     link: "#",
     skills: ["Deep Learning", "Computer Vision", "Research Paper"]
@@ -87,6 +90,7 @@ window.appData.featuredProjects = [
   {
     title: "Noise Resilience and Parameter Efficiency of Quantum Classifiers: A Comparative Analysis Using IBM Qiskit 1.x",
     date: "Completed",
+    image: "assets/projects/quantum.jpg",
     description: "Research paper evaluating the parameter efficiency and noise resilience of quantum classifiers using Qiskit. Co-authored with Utkrisht Patel and Dr. Rakesh Kumar Yadav (Associate Professor, Gautam Buddha University).",
     link: "#",
     skills: ["Quantum Computing", "Qiskit", "Research Paper"]
@@ -94,6 +98,7 @@ window.appData.featuredProjects = [
   {
     title: "The Prophecy of Faith: A Love Beyond Belief But In Different Manner",
     date: "Published: 28 July 2026",
+    image: "assets/projects/prophecy.jpg",
     description: "In the dusty lanes of Sultanpur, where prophecy is spoken before love is confessed, Aditya and Srivelli find each other only to be told their Rashi's are fatally incompatible. A literary tragedy about love, friendship, and the grief of knowing an ending before it arrives. Co-authored with Shagun Raghuwanshi.",
     link: "https://www.amazon.in/dp/B0HBYX9X5T",
     skills: ["Author", "Book", "Amazon Kindle"]
@@ -101,6 +106,7 @@ window.appData.featuredProjects = [
   {
     title: "GSSoC 2026 Contributor / Mentee",
     date: "2026",
+    image: "assets/projects/open_source.jpg",
     description: "Selected as a Contributor and Mentee for GirlScript Summer of Code (GSSoC) 2026 in the Open Source + AI/Agents Track. Actively contributing, learning, and collaborating with amazing developers in the open-source AI community.",
     link: "https://lnkd.in/geJgNZ7t",
     skills: ["Open Source", "AI/Agents", "GSSoC"]
@@ -108,6 +114,7 @@ window.appData.featuredProjects = [
   {
     title: "SSoC Season 5 Contributor",
     date: "2026",
+    image: "assets/projects/open_source.jpg",
     description: "Selected as a Contributor for Social Summer of Code (SSoC) Season 5, India's largest open source program. Contributing to real projects, learning from mentors, and shipping code that matters.",
     link: "https://lnkd.in/gHNU23YS",
     skills: ["Open Source", "SSoC", "Mentorship"]
@@ -117,8 +124,7 @@ window.appData.featuredProjects = [
     date: "Active",
     description: "Open-source contributions to Qiskit ecosystem tooling and educational resources.",
     link: "https://github.com/givemehat",
-    image: "", 
-    gradient: "card-cover--gradient-3",
+    image: "assets/projects/quantum.jpg",
     skills: ["Python", "Qiskit", "Jupyter"]
   }
 ];

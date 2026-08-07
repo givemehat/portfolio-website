@@ -50,9 +50,10 @@ window.appData.featuredProjects = [
   {
     title: "Quantum Dissipative Market Simulator (QDMS)",
     date: "May 2026 – Present",
-    description: "QDMS models financial risk as an Open Quantum System. Using Qiskit/QuTiP, it solves the Lindblad Master Equation to simulate market crashes as quantum dissipation and decoherence. Built with a FastAPI backend and a React 19 dashboard, it streams on live time state fidelity and risk heatmaps.",
+    description: "Capstone Project as an AI/ML Intern at IIT Guwahati. QDMS models financial liquidity cascades and shock propagation via Open Quantum System dynamics. It solves the Lindblad Master Equation using Qiskit/QuTiP to simulate market crashes. Built with a FastAPI backend, ML predictors (LSTM/XGBoost), and a React 19 dashboard.",
     link: "https://github.com/givemehat/Quantum-Dissipative-Market-Simulator-QDMS-",
-    skills: ["Quantum Computing", "Python"]
+    image: "assets/qdms_thumbnail.jpg",
+    skills: ["Quantum Computing", "Qiskit", "FastAPI", "React 19"]
   },
   {
     title: "DevPulse - CLI Productivity Tracker",

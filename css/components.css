@@ -132,6 +132,7 @@
 .card-cover--gradient-4 { background: linear-gradient(135deg, #6F4CFF, #FF6B6B); }
 .card-cover--gradient-5 { background: linear-gradient(135deg, #0090B8, #2FCF71); }
 .card-cover--gradient-6 { background: linear-gradient(135deg, #FF6B6B, #FFB347); }
+.card-cover--image { height: 200px; }
 
 /* Card Status */
 .card-status {

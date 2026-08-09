@@ -22,8 +22,8 @@
   --gold-soft:   rgba(184, 146, 42, 0.12);
 
   /* Fonts */
-  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body:    'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono:    'JetBrains Mono', monospace;
 
   /* Type Scale */
@@ -115,9 +115,9 @@ body[data-theme="dark"] {
   --glow-violet: none;
 
   /* Glass */
-  --glass-bg:     rgba(10, 10, 10, 0.65);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-blur:   blur(24px);
+  --glass-bg:     rgba(10, 10, 10, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-blur:   blur(32px);
 }
 
 /* Auto-dark support */

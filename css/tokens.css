@@ -6,67 +6,79 @@
 
 :root {
   /* ── Light / Cream Theme ── */
-  --bg:          #FAF7F2;
-  --bg-alt:      #F5F0E8;
-  --card:        #FFFFFF;
-  --card-hover:  #FDF9F3;
-  --line:        #E8DFD0;
-  --text:        #1A1510;
-  --text-dim:    #6B5E4E;
+  --bg: #faf7f2;
+  --bg-alt: #f5f0e8;
+  --card: #ffffff;
+  --card-hover: #fdf9f3;
+  --line: #e8dfd0;
+  --text: #1a1510;
+  --text-dim: #6b5e4e;
 
   /* Brand */
-  --violet:      #3B2D8F;
-  --violet-soft: rgba(59, 45, 143, 0.10);
-  --cyan:        #1A6B8A;
-  --gold:        #B8922A;
-  --gold-soft:   rgba(184, 146, 42, 0.12);
+  --violet: #3b2d8f;
+  --violet-soft: rgba(59, 45, 143, 0.1);
+  --cyan: #1a6b8a;
+  --gold: #b8922a;
+  --gold-soft: rgba(184, 146, 42, 0.12);
 
   /* Fonts */
-  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-body:    'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono:    'JetBrains Mono', monospace;
+  --font-display:
+    "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body:
+    "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 
   /* Type Scale */
   --fs-display: clamp(48px, 7vw, 96px);
-  --fs-h1:      clamp(36px, 5vw, 60px);
-  --fs-h2:      clamp(28px, 4vw, 44px);
-  --fs-h3:      clamp(20px, 2.5vw, 28px);
-  --fs-body:    18px;
-  --fs-small:   14px;
+  --fs-h1: clamp(36px, 5vw, 60px);
+  --fs-h2: clamp(28px, 4vw, 44px);
+  --fs-h3: clamp(20px, 2.5vw, 28px);
+  --fs-body: 18px;
+  --fs-small: 14px;
 
   /* Weights */
-  --fw-regular:  400;
-  --fw-medium:   500;
+  --fw-regular: 400;
+  --fw-medium: 500;
   --fw-semibold: 600;
-  --fw-bold:     700;
+  --fw-bold: 700;
   --fw-extrabold: 800;
 
   /* Line Heights */
   --lh-tight: 1.05;
-  --lh-base:  1.8;
+  --lh-base: 1.8;
 
   /* Letter Spacing */
   --tracking-tighter: -0.04em;
   --tracking-tight: -0.02em;
   --tracking-normal: 0;
-  --tracking-wide:  0.18em;
+  --tracking-wide: 0.18em;
 
   /* Spacing Scale (Increased for breathing room) */
-  --sp-1: 4px;   --sp-2: 8px;   --sp-3: 12px;
-  --sp-4: 16px;  --sp-5: 24px;  --sp-6: 32px;
-  --sp-8: 48px;  --sp-10: 64px; --sp-12: 80px;
-  --sp-16: 96px; --sp-20: 128px; --sp-24: 160px;
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-8: 48px;
+  --sp-10: 64px;
+  --sp-12: 80px;
+  --sp-16: 96px;
+  --sp-20: 128px;
+  --sp-24: 160px;
   --sp-32: 200px;
 
   /* Border Radius */
-  --radius-sm: 8px;  --radius-md: 16px;
-  --radius-lg: 18px; --radius-xl: 24px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
   --radius-full: 9999px;
 
   /* Shadows — warm tones for light mode */
   --shadow-sm: 0 1px 3px rgba(26, 21, 16, 0.08);
-  --shadow-md: 0 4px 12px rgba(26, 21, 16, 0.10);
-  --shadow-lg: 0 10px 30px rgba(26, 21, 16, 0.10);
+  --shadow-md: 0 4px 12px rgba(26, 21, 16, 0.1);
+  --shadow-lg: 0 10px 30px rgba(26, 21, 16, 0.1);
   --shadow-xl: 0 20px 50px rgba(26, 21, 16, 0.12);
   --glow-cyan: none;
   --glow-violet: none;
@@ -77,65 +89,77 @@
   --ease-slow: 400ms ease;
 
   /* Z-index */
-  --z-nav: 50; --z-admin: 150; --z-modal: 200; --z-toast: 300;
+  --z-nav: 50;
+  --z-admin: 150;
+  --z-modal: 200;
+  --z-toast: 300;
 
   /* Layout */
   --container-max: 1160px;
   --container-pad: 28px;
 
   /* Glass (light = very subtle) */
-  --glass-bg:     rgba(255, 255, 255, 0.70);
+  --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(26, 21, 16, 0.08);
-  --glass-blur:   blur(12px);
+  --glass-blur: blur(12px);
 }
 
 /* ── Dark / Space Theme ── */
 body.dark,
 body[data-theme="dark"] {
-  --bg:          #0A0A0A;
-  --bg-alt:      #111111;
-  --card:        rgba(20, 20, 20, 0.70);
-  --card-hover:  rgba(30, 30, 30, 0.85);
-  --line:        rgba(255, 255, 255, 0.1);
-  --text:        #EDEDED;
-  --text-dim:    #A1A1A1;
+  --bg: #0a0a0a;
+  --bg-alt: #111111;
+  --card: rgba(20, 20, 20, 0.7);
+  --card-hover: rgba(30, 30, 30, 0.85);
+  --line: rgba(255, 255, 255, 0.1);
+  --text: #ededed;
+  --text-dim: #a1a1a1;
 
-  --violet:      #EDEDED; /* Overridden to white for monochrome feel */
+  --violet: #ededed; /* Overridden to white for monochrome feel */
   --violet-soft: rgba(255, 255, 255, 0.05);
-  --cyan:        #E2B714; /* Single accent color: elegant soft gold */
-  --gold:        #E2B714;
-  --gold-soft:   rgba(226, 183, 20, 0.12);
+  --cyan: #e2b714; /* Single accent color: elegant soft gold */
+  --gold: #e2b714;
+  --gold-soft: rgba(226, 183, 20, 0.12);
 
   /* Shadows — soft premium glow */
   --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 14px 40px rgba(0, 0, 0, 0.5);
   --shadow-xl: 0 24px 60px rgba(0, 0, 0, 0.6);
-  --glow-cyan:   0 0 20px rgba(226, 183, 20, 0.15);
+  --glow-cyan: 0 0 20px rgba(226, 183, 20, 0.15);
   --glow-violet: none;
 
   /* Glass */
-  --glass-bg:     rgba(10, 10, 10, 0.45);
+  --glass-bg: rgba(10, 10, 10, 0.45);
   --glass-border: rgba(255, 255, 255, 0.12);
-  --glass-blur:   blur(32px);
+  --glass-blur: blur(32px);
 }
 
 /* Auto-dark support */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #050816; --bg-alt: #080D1A;
-    --card: rgba(16, 20, 45, 0.80); --card-hover: rgba(22, 28, 58, 0.90);
+    --bg: #050816;
+    --bg-alt: #080d1a;
+    --card: rgba(16, 20, 45, 0.8);
+    --card-hover: rgba(22, 28, 58, 0.9);
     --line: rgba(255, 255, 255, 0.07);
-    --text: #E8EAFF; --text-dim: #8892B0;
-    --violet: #8B5CF6; --violet-soft: rgba(139, 92, 246, 0.15);
-    --cyan: #00E5FF; --gold: #D4AF37; --gold-soft: rgba(212, 175, 55, 0.12);
-    --shadow-sm: 0 1px 3px rgba(0,0,0,.6);
-    --shadow-md: 0 4px 12px rgba(0,0,0,.5);
-    --shadow-lg: 0 10px 30px rgba(0,0,0,.5);
-    --shadow-xl: 0 20px 50px rgba(0,0,0,.6);
-    --glow-cyan:   0 0 20px rgba(0,229,255,0.35), 0 0 40px rgba(0,229,255,0.10);
-    --glow-violet: 0 0 20px rgba(139,92,246,0.40), 0 0 40px rgba(139,92,246,0.15);
-    --glass-bg: rgba(10, 14, 35, 0.65); --glass-border: rgba(255,255,255,0.06);
+    --text: #e8eaff;
+    --text-dim: #8892b0;
+    --violet: #8b5cf6;
+    --violet-soft: rgba(139, 92, 246, 0.15);
+    --cyan: #00e5ff;
+    --gold: #d4af37;
+    --gold-soft: rgba(212, 175, 55, 0.12);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.6);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.6);
+    --glow-cyan:
+      0 0 20px rgba(0, 229, 255, 0.35), 0 0 40px rgba(0, 229, 255, 0.1);
+    --glow-violet:
+      0 0 20px rgba(139, 92, 246, 0.4), 0 0 40px rgba(139, 92, 246, 0.15);
+    --glass-bg: rgba(10, 14, 35, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.06);
     --glass-blur: blur(20px);
   }
 }

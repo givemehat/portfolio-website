@@ -2,7 +2,7 @@
    CYBER ARCADE PORTAL (Synthwave / Neon Tech Aesthetic)
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap");
 
 /* Pinned Tab */
 #game-tab {
@@ -12,7 +12,7 @@
   transform: translateY(-50%);
   background: rgba(11, 17, 32, 0.85);
   backdrop-filter: blur(8px);
-  border: 1px solid #00E5FF;
+  border: 1px solid #00e5ff;
   border-right: none;
   padding: 20px 10px;
   border-radius: 12px 0 0 12px;
@@ -29,8 +29,13 @@
 }
 
 @keyframes widgetGlow {
-  0%, 100% { box-shadow: 0 0 15px rgba(0, 229, 255, 0.2); }
-  50% { box-shadow: 0 0 25px rgba(0, 229, 255, 0.5); }
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.5);
+  }
 }
 
 #game-tab:hover {
@@ -41,22 +46,29 @@
 
 .scanline {
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 4px;
   background: rgba(0, 229, 255, 0.5);
-  box-shadow: 0 0 10px #00E5FF;
+  box-shadow: 0 0 10px #00e5ff;
   animation: scan 2s linear infinite;
   opacity: 0.5;
 }
 
 @keyframes scan {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(200px); }
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(200px);
+  }
 }
 
 #game-tab .tab-icon {
-  width: 28px; height: 28px;
-  color: #00E5FF;
+  width: 28px;
+  height: 28px;
+  color: #00e5ff;
   animation: pulseNeon 2s infinite alternate;
 }
 
@@ -64,19 +76,25 @@
   writing-mode: vertical-rl;
   text-orientation: mixed;
   color: #fff;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
 }
 
 @keyframes pulseNeon {
-  0% { filter: drop-shadow(0 0 2px #00E5FF); }
-  100% { filter: drop-shadow(0 0 8px #00E5FF); }
+  0% {
+    filter: drop-shadow(0 0 2px #00e5ff);
+  }
+  100% {
+    filter: drop-shadow(0 0 8px #00e5ff);
+  }
 }
 
 /* Modal Overlay & Body Lock */
-body.game-open { overflow: hidden; }
+body.game-open {
+  overflow: hidden;
+}
 
 /* The Expanded Dashboard Panel (Full Screen) */
 #game-panel {
@@ -101,8 +119,17 @@ body.game-open #game-panel {
 .arcade-scanline-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-  background-size: 100% 4px, 3px 100%;
+  background:
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06)
+    );
+  background-size:
+    100% 4px,
+    3px 100%;
   pointer-events: none;
   z-index: 99;
 }
@@ -115,16 +142,16 @@ body.game-open #game-panel {
   justify-content: space-between;
   align-items: center;
   padding: 16px 32px;
-  border-bottom: 1px solid #FF0055;
+  border-bottom: 1px solid #ff0055;
   background: rgba(255, 0, 85, 0.1);
   box-shadow: 0 4px 20px rgba(255, 0, 85, 0.2);
 }
 
 .game-header h3 {
-  color: #FF0055;
+  color: #ff0055;
   margin: 0;
-  font-family: 'Orbitron', sans-serif;
-  text-shadow: 0 0 10px #FF0055;
+  font-family: "Orbitron", sans-serif;
+  text-shadow: 0 0 10px #ff0055;
 }
 
 /* Make sure the content areas inside the panel can scroll */
@@ -136,7 +163,9 @@ body.game-open #game-panel {
   scrollbar-width: thin;
   scrollbar-color: var(--cyan) transparent;
 }
-.game-content::-webkit-scrollbar { width: 6px; }
+.game-content::-webkit-scrollbar {
+  width: 6px;
+}
 .game-content::-webkit-scrollbar-thumb {
   background: var(--cyan);
   border-radius: 4px;
@@ -151,7 +180,7 @@ body.game-open #game-panel {
   transition: all 0.2s;
 }
 .close-game-btn:hover {
-  color: #FF0055;
+  color: #ff0055;
   transform: scale(1.1);
 }
 
@@ -169,13 +198,15 @@ body.game-open #game-panel {
 
 /* Pre-Screen (Game Selection) */
 .arcade-title {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 32px;
   font-weight: 900;
   color: #fff;
   text-align: center;
   margin-bottom: 40px;
-  text-shadow: 0 0 10px #00E5FF, 0 0 20px #00E5FF;
+  text-shadow:
+    0 0 10px #00e5ff,
+    0 0 20px #00e5ff;
 }
 
 .arcade-cards-grid {
@@ -196,15 +227,25 @@ body.game-open #game-panel {
   text-align: center;
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    border-color 0.3s,
+    box-shadow 0.3s;
   cursor: default;
 }
 
 .arcade-card-glint {
   position: absolute;
-  top: 0; left: -100%;
-  width: 50%; height: 100%;
-  background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
   transform: skewX(-20deg);
 }
 
@@ -216,11 +257,19 @@ body.game-open #game-panel {
 }
 
 @keyframes glint {
-  100% { left: 200%; }
+  100% {
+    left: 200%;
+  }
 }
 
-#card-flyer:hover { border-color: #9062FF; box-shadow: 0 0 30px rgba(144, 98, 255, 0.3); }
-#card-stroop:hover { border-color: #00E5FF; box-shadow: 0 0 30px rgba(0, 229, 255, 0.3); }
+#card-flyer:hover {
+  border-color: #9062ff;
+  box-shadow: 0 0 30px rgba(144, 98, 255, 0.3);
+}
+#card-stroop:hover {
+  border-color: #00e5ff;
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+}
 
 .arcade-card-icon {
   font-size: 48px;
@@ -228,13 +277,17 @@ body.game-open #game-panel {
 }
 
 .arcade-card h3 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 24px;
   color: #fff;
   margin-bottom: 12px;
 }
-#card-flyer h3 { text-shadow: 0 0 10px #9062FF; }
-#card-stroop h3 { text-shadow: 0 0 10px #00E5FF; }
+#card-flyer h3 {
+  text-shadow: 0 0 10px #9062ff;
+}
+#card-stroop h3 {
+  text-shadow: 0 0 10px #00e5ff;
+}
 
 .arcade-card p {
   color: var(--text-dim);
@@ -245,15 +298,15 @@ body.game-open #game-panel {
 }
 
 .high-score-badge {
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 20px;
   padding: 8px 16px;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 12px;
-  color: #FFD700;
+  color: #ffd700;
   margin-bottom: 24px;
   display: inline-block;
-  border: 1px solid rgba(255,215,0,0.3);
+  border: 1px solid rgba(255, 215, 0, 0.3);
 }
 
 .btn-insert-coin {
@@ -263,7 +316,7 @@ body.game-open #game-panel {
   color: #fff;
   border: 2px solid #fff;
   border-radius: 4px;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
@@ -272,15 +325,34 @@ body.game-open #game-panel {
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
 }
 
-#btn-start-flyer { border-color: #9062FF; color: #9062FF; }
-#btn-start-flyer:hover { background: #9062FF; color: #fff; box-shadow: 0 0 20px #9062FF; }
+#btn-start-flyer {
+  border-color: #9062ff;
+  color: #9062ff;
+}
+#btn-start-flyer:hover {
+  background: #9062ff;
+  color: #fff;
+  box-shadow: 0 0 20px #9062ff;
+}
 
-#btn-start-stroop { border-color: #00E5FF; color: #00E5FF; }
-#btn-start-stroop:hover { background: #00E5FF; color: #000; box-shadow: 0 0 20px #00E5FF; }
+#btn-start-stroop {
+  border-color: #00e5ff;
+  color: #00e5ff;
+}
+#btn-start-stroop:hover {
+  background: #00e5ff;
+  color: #000;
+  box-shadow: 0 0 20px #00e5ff;
+}
 
 /* Arena Screens Common */
 .arena-screen {
@@ -289,12 +361,13 @@ body.game-open #game-panel {
 
 .btn-back-arcade {
   position: absolute;
-  top: 24px; left: 24px;
+  top: 24px;
+  left: 24px;
   background: transparent;
   border: 1px solid #333;
   color: #888;
   padding: 8px 16px;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 12px;
   cursor: pointer;
   border-radius: 4px;
@@ -314,7 +387,7 @@ body.game-open #game-panel {
   max-width: 800px;
   height: 500px;
   background: #0a0a0a;
-  border: 2px solid #9062FF;
+  border: 2px solid #9062ff;
   border-radius: 8px;
   box-shadow: 0 0 30px rgba(144, 98, 255, 0.2);
   cursor: pointer;
@@ -324,10 +397,10 @@ body.game-open #game-panel {
   position: absolute;
   top: 24px;
   right: 24px;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 24px;
-  color: #9062FF;
-  text-shadow: 0 0 10px #9062FF;
+  color: #9062ff;
+  text-shadow: 0 0 10px #9062ff;
   z-index: 101;
 }
 
@@ -335,26 +408,28 @@ body.game-open #game-panel {
    GAME 2: STROOP CRISIS
    --------------------------------- */
 #game-timer-container {
-  width: 100%; max-width: 600px;
+  width: 100%;
+  max-width: 600px;
   height: 8px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
   margin-bottom: 24px;
   overflow: hidden;
 }
 #game-timer-bar {
-  height: 100%; width: 100%;
-  background: #00FF66;
-  box-shadow: 0 0 15px #00FF66;
+  height: 100%;
+  width: 100%;
+  background: #00ff66;
+  box-shadow: 0 0 15px #00ff66;
   transform-origin: left;
 }
 .timer-danger {
-  background: #FF0055 !important;
-  box-shadow: 0 0 20px #FF0055 !important;
+  background: #ff0055 !important;
+  box-shadow: 0 0 20px #ff0055 !important;
 }
 
 .round-counter {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   color: #888;
   margin-bottom: 40px;
   letter-spacing: 2px;
@@ -362,12 +437,14 @@ body.game-open #game-panel {
 
 #stroop-word-container {
   height: 150px;
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 60px;
 }
 
 #stroop-word {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 80px;
   font-weight: 900;
   text-transform: uppercase;
@@ -379,38 +456,51 @@ body.game-open #game-panel {
 
 /* Glitch animation class */
 .stroop-glitch {
-  animation: glitch-anim 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+  animation: glitch-anim 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
 }
 @keyframes glitch-anim {
-  0% { transform: translate(0) }
-  20% { transform: translate(-2px, 2px) }
-  40% { transform: translate(-2px, -2px) }
-  60% { transform: translate(2px, 2px) }
-  80% { transform: translate(2px, -2px) }
-  100% { transform: translate(0) }
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
 }
 
 .stroop-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
-  width: 100%; max-width: 600px;
+  width: 100%;
+  max-width: 600px;
 }
 
 .stroop-btn {
   background: transparent;
-  border: 2px solid rgba(255,255,255,0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   padding: 24px;
   color: #fff;
   font-size: 20px;
   font-weight: 700;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   cursor: pointer;
   transition: all 0.1s;
 }
 .stroop-btn:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   border-color: #fff;
   transform: scale(1.05);
 }
@@ -418,88 +508,135 @@ body.game-open #game-panel {
 #combo-tracker {
   position: absolute;
   top: 100px;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 32px;
-  color: #FFD700;
-  text-shadow: 0 0 20px #FFD700;
+  color: #ffd700;
+  text-shadow: 0 0 20px #ffd700;
   animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 @keyframes popIn {
-  0% { transform: scale(0.5); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 #timeout-overlay {
   position: absolute;
   inset: 0;
-  display: flex; align-items: center; justify-content: center;
-  background: rgba(255,0,85,0.3);
-  color: #FF0055;
-  font-family: 'Orbitron', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 0, 85, 0.3);
+  color: #ff0055;
+  font-family: "Orbitron", sans-serif;
   font-size: 100px;
   font-weight: 900;
-  text-shadow: 0 0 40px #FF0055;
+  text-shadow: 0 0 40px #ff0055;
   z-index: 200;
   pointer-events: none;
   animation: flashRed 0.5s ease-out forwards;
 }
 
 @keyframes flashRed {
-  0% { opacity: 1; transform: scale(1.2); }
-  100% { opacity: 0; transform: scale(1); }
+  0% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
 }
 
 /* Generic Arcade Game Over Overlay */
 .arcade-game-over {
   position: absolute;
-  top: 50%; left: 50%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(10,10,15,0.95);
+  background: rgba(10, 10, 15, 0.95);
   border: 2px solid #555;
   border-radius: 12px;
   padding: 40px;
   text-align: center;
   z-index: 150;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-  width: 90%; max-width: 400px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  width: 90%;
+  max-width: 400px;
 }
 
-#flyer-game-over { border-color: #9062FF; box-shadow: 0 0 40px rgba(144,98,255,0.3); }
-#stroop-game-over { border-color: #00E5FF; box-shadow: 0 0 40px rgba(0,229,255,0.3); }
+#flyer-game-over {
+  border-color: #9062ff;
+  box-shadow: 0 0 40px rgba(144, 98, 255, 0.3);
+}
+#stroop-game-over {
+  border-color: #00e5ff;
+  box-shadow: 0 0 40px rgba(0, 229, 255, 0.3);
+}
 
 .glitch-text {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 32px; color: #9062FF;
-  text-shadow: 0 0 10px #9062FF;
+  font-family: "Orbitron", sans-serif;
+  font-size: 32px;
+  color: #9062ff;
+  text-shadow: 0 0 10px #9062ff;
   margin-bottom: 24px;
 }
 
 .eval-stat {
-  display: flex; flex-direction: column; gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   margin-bottom: 20px;
 }
-.eval-label { color: #888; font-size: 12px; letter-spacing: 1px; }
-.eval-value { color: #fff; font-size: 24px; font-weight: 700; font-family: 'Orbitron', sans-serif;}
+.eval-label {
+  color: #888;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.eval-value {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Orbitron", sans-serif;
+}
 
 .arcade-new-record {
-  color: #FFD700;
-  font-family: 'Orbitron', sans-serif;
+  color: #ffd700;
+  font-family: "Orbitron", sans-serif;
   font-size: 18px;
   margin-top: 16px;
-  text-shadow: 0 0 10px #FFD700;
+  text-shadow: 0 0 10px #ffd700;
   animation: blink 1s infinite;
 }
 
 /* Screenshake class applied to arena */
 .shake-hard {
-  animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+  animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 @keyframes shake {
-  10%, 90% { transform: translate3d(-4px, 0, 0); }
-  20%, 80% { transform: translate3d(4px, 0, 0); }
-  30%, 50%, 70% { transform: translate3d(-8px, 0, 0); }
-  40%, 60% { transform: translate3d(8px, 0, 0); }
+  10%,
+  90% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  20%,
+  80% {
+    transform: translate3d(4px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-8px, 0, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(8px, 0, 0);
+  }
 }
 
 /* =======================================================
@@ -508,7 +645,7 @@ body.game-open #game-panel {
 .arcade-modal-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   z-index: 500;
@@ -525,16 +662,16 @@ body.game-open #game-panel {
   text-align: center;
   width: 90%;
   max-width: 450px;
-  box-shadow: 0 0 50px rgba(0,255,102,0.1);
+  box-shadow: 0 0 50px rgba(0, 255, 102, 0.1);
   animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .arcade-input {
   width: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   border: 1px solid #555;
   color: #fff;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 20px;
   padding: 16px;
   text-align: center;
@@ -544,8 +681,8 @@ body.game-open #game-panel {
   transition: all 0.2s;
 }
 .arcade-input:focus {
-  border-color: #00FF66;
-  box-shadow: 0 0 15px rgba(0,255,102,0.3);
+  border-color: #00ff66;
+  box-shadow: 0 0 15px rgba(0, 255, 102, 0.3);
 }
 
 .leaderboard-tabs {
@@ -560,7 +697,7 @@ body.game-open #game-panel {
   border: 1px solid #555;
   color: #888;
   padding: 12px 24px;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 12px;
   font-weight: 700;
   border-radius: 4px;
@@ -574,15 +711,15 @@ body.game-open #game-panel {
 }
 
 .lb-tab.active {
-  border-color: #FFD700;
-  color: #FFD700;
-  box-shadow: 0 0 15px rgba(255,215,0,0.3);
+  border-color: #ffd700;
+  color: #ffd700;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
 }
 
 .leaderboard-container {
   width: 100%;
   max-width: 700px;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   border: 1px solid #333;
   border-radius: 8px;
   overflow-y: auto;
@@ -593,13 +730,13 @@ body.game-open #game-panel {
 .arcade-table {
   width: 100%;
   border-collapse: collapse;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 14px;
   text-align: left;
 }
 
 .arcade-table th {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   color: #aaa;
   padding: 16px;
   border-bottom: 2px solid #555;
@@ -614,17 +751,29 @@ body.game-open #game-panel {
   color: #fff;
 }
 
-.arcade-table tr.rank-1 td { color: #FFD700; font-weight: 700; text-shadow: 0 0 10px rgba(255,215,0,0.5); }
-.arcade-table tr.rank-2 td { color: #C0C0C0; font-weight: 700; text-shadow: 0 0 10px rgba(192,192,192,0.5); }
-.arcade-table tr.rank-3 td { color: #CD7F32; font-weight: 700; text-shadow: 0 0 10px rgba(205,127,50,0.5); }
+.arcade-table tr.rank-1 td {
+  color: #ffd700;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+.arcade-table tr.rank-2 td {
+  color: #c0c0c0;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(192, 192, 192, 0.5);
+}
+.arcade-table tr.rank-3 td {
+  color: #cd7f32;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(205, 127, 50, 0.5);
+}
 
 .arcade-table tr:hover {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .current-user-row {
   background: rgba(0, 255, 102, 0.1) !important;
-  border-left: 4px solid #00FF66;
+  border-left: 4px solid #00ff66;
 }
 
 .leaderboard-congrats {
@@ -634,21 +783,25 @@ body.game-open #game-panel {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0, 0, 0, 0.9);
   flex-direction: column;
   animation: flashWinner 1s ease-out;
   pointer-events: none;
 }
 .leaderboard-congrats h1 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 48px;
-  color: #FFD700;
-  text-shadow: 0 0 30px #FFD700;
+  color: #ffd700;
+  text-shadow: 0 0 30px #ffd700;
   margin-bottom: 20px;
 }
 @keyframes flashWinner {
-  0% { background: #fff; }
-  100% { background: rgba(0,0,0,0.9); }
+  0% {
+    background: #fff;
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.9);
+  }
 }
 
 /* ---------------------------------
@@ -671,12 +824,15 @@ body.game-open #game-panel {
   align-items: center;
   width: 100%;
   max-width: 450px;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 14px;
-  color: #00E5FF;
-  text-shadow: 0 0 8px rgba(0,229,255,0.5);
+  color: #00e5ff;
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.5);
 }
-.sudoku-timer, .sudoku-mistakes { letter-spacing: 0.08em; }
+.sudoku-timer,
+.sudoku-mistakes {
+  letter-spacing: 0.08em;
+}
 
 /* Difficulty pills */
 .sudoku-difficulty-selector {
@@ -688,23 +844,26 @@ body.game-open #game-panel {
   max-width: 450px;
 }
 .btn-diff {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 11px;
   padding: 6px 12px;
   border-radius: 20px;
   border: 1px solid #333;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   color: #888;
   cursor: pointer;
   transition: all 0.2s;
   letter-spacing: 0.05em;
 }
-.btn-diff:hover { border-color: #00E5FF; color: #00E5FF; }
+.btn-diff:hover {
+  border-color: #00e5ff;
+  color: #00e5ff;
+}
 .btn-diff.active {
-  background: rgba(0,229,255,0.15);
-  border-color: #00E5FF;
-  color: #00E5FF;
-  box-shadow: 0 0 10px rgba(0,229,255,0.3);
+  background: rgba(0, 229, 255, 0.15);
+  border-color: #00e5ff;
+  color: #00e5ff;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
 }
 
 /* ── Board ── */
@@ -714,11 +873,11 @@ body.game-open #game-panel {
   width: 100%;
   max-width: 450px;
   aspect-ratio: 1 / 1;
-  border: 2px solid #00E5FF;
-  box-shadow: 0 0 20px rgba(0,229,255,0.25);
+  border: 2px solid #00e5ff;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.25);
   border-radius: 4px;
   overflow: hidden;
-  background: #00E5FF; /* gap colour = thin cyan lines */
+  background: #00e5ff; /* gap colour = thin cyan lines */
   gap: 1px;
   margin: 0 auto;
 }
@@ -729,7 +888,7 @@ body.game-open #game-panel {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: clamp(14px, 2.5vw, 22px);
   font-weight: 700;
   cursor: pointer;
@@ -740,43 +899,84 @@ body.game-open #game-panel {
 }
 
 /* 3×3 box borders — added by JS via classList */
-.sudoku-cell.box-right  { border-right:  2px solid #00E5FF; }
-.sudoku-cell.box-bottom { border-bottom: 2px solid #00E5FF; }
+.sudoku-cell.box-right {
+  border-right: 2px solid #00e5ff;
+}
+.sudoku-cell.box-bottom {
+  border-bottom: 2px solid #00e5ff;
+}
 
 /* States */
-.sudoku-cell.fixed    { color: #e0f7ff; }
-.sudoku-cell.user     { color: #FFD700; text-shadow: 0 0 6px rgba(255,215,0,0.5); }
-.sudoku-cell.selected { background: rgba(0,229,255,0.35); box-shadow: inset 0 0 12px rgba(0,229,255,0.6); }
-.sudoku-cell.zone     { background: rgba(0,229,255,0.07); }
-.sudoku-cell.same     { background: rgba(0,229,255,0.18); }
-.sudoku-cell.error    { color: #FF0055 !important; background: rgba(255,0,85,0.18) !important; text-shadow: 0 0 8px #FF0055; }
-.sudoku-cell.conflict { animation: conflictPulse 0.7s ease; }
+.sudoku-cell.fixed {
+  color: #e0f7ff;
+}
+.sudoku-cell.user {
+  color: #ffd700;
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+}
+.sudoku-cell.selected {
+  background: rgba(0, 229, 255, 0.35);
+  box-shadow: inset 0 0 12px rgba(0, 229, 255, 0.6);
+}
+.sudoku-cell.zone {
+  background: rgba(0, 229, 255, 0.07);
+}
+.sudoku-cell.same {
+  background: rgba(0, 229, 255, 0.18);
+}
+.sudoku-cell.error {
+  color: #ff0055 !important;
+  background: rgba(255, 0, 85, 0.18) !important;
+  text-shadow: 0 0 8px #ff0055;
+}
+.sudoku-cell.conflict {
+  animation: conflictPulse 0.7s ease;
+}
 @keyframes conflictPulse {
-  0%,100% { box-shadow: none; }
-  50%      { box-shadow: inset 0 0 0 2px #FF0055, 0 0 12px #FF0055; }
+  0%,
+  100% {
+    box-shadow: none;
+  }
+  50% {
+    box-shadow:
+      inset 0 0 0 2px #ff0055,
+      0 0 12px #ff0055;
+  }
 }
 
 /* Hover (only non-selected, non-fixed) */
-.sudoku-cell:not(.selected):not(.fixed):hover { background: rgba(0,229,255,0.12); }
+.sudoku-cell:not(.selected):not(.fixed):hover {
+  background: rgba(0, 229, 255, 0.12);
+}
 
 /* ── Loading skeleton ── */
-.sudoku-board.loading { background: #090e1a; gap: 1px; }
+.sudoku-board.loading {
+  background: #090e1a;
+  gap: 1px;
+}
 .sudoku-skel {
   background: #0d1422;
   animation: skelPulse 1.2s ease-in-out infinite;
 }
 @keyframes skelPulse {
-  0%,100% { background: #0d1422; }
-  50%      { background: rgba(0,229,255,0.08); }
+  0%,
+  100% {
+    background: #0d1422;
+  }
+  50% {
+    background: rgba(0, 229, 255, 0.08);
+  }
 }
 
 /* ── Notes mini-grid ── */
 .sudoku-notes-grid {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
-  grid-template-rows: repeat(3,1fr);
-  width: 100%; height: 100%;
-  position: absolute; inset: 0;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
   pointer-events: none;
 }
 .sudoku-notes-grid span {
@@ -786,7 +986,7 @@ body.game-open #game-panel {
   align-items: center;
   justify-content: center;
   font-weight: 400;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
 }
 
 /* ── Controls row ── */
@@ -799,29 +999,38 @@ body.game-open #game-panel {
   flex-wrap: wrap;
 }
 /* Both .btn-sudoku-action (HTML) and .sudoku-btn (legacy) */
-.btn-sudoku-action, .sudoku-btn {
-  background: rgba(0,0,0,0.5);
-  border: 1px solid #00E5FF;
-  color: #00E5FF;
+.btn-sudoku-action,
+.sudoku-btn {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #00e5ff;
+  color: #00e5ff;
   padding: 9px 14px;
   border-radius: 4px;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 12px;
   cursor: pointer;
   transition: all 0.2s;
-  display: flex; align-items: center; gap: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   letter-spacing: 0.03em;
 }
-.btn-sudoku-action:hover, .sudoku-btn:hover {
-  background: rgba(0,229,255,0.15);
-  box-shadow: 0 0 10px rgba(0,229,255,0.35);
+.btn-sudoku-action:hover,
+.sudoku-btn:hover {
+  background: rgba(0, 229, 255, 0.15);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.35);
 }
-.btn-sudoku-action.active, .sudoku-btn.active {
-  background: #00E5FF;
+.btn-sudoku-action.active,
+.sudoku-btn.active {
+  background: #00e5ff;
   color: #000;
-  box-shadow: 0 0 14px #00E5FF;
+  box-shadow: 0 0 14px #00e5ff;
 }
-.btn-sudoku-action:disabled, .sudoku-btn:disabled { opacity: 0.35; cursor: default; }
+.btn-sudoku-action:disabled,
+.sudoku-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
 
 /* ── Numpad ── */
 .sudoku-numpad {
@@ -831,11 +1040,12 @@ body.game-open #game-panel {
   width: 100%;
   max-width: 450px;
 }
-.btn-num, .numpad-btn {
+.btn-num,
+.numpad-btn {
   background: #090e1a;
   border: 1px solid #1a2a3a;
   color: #cde;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: clamp(14px, 2vw, 20px);
   padding: 10px 0;
   border-radius: 4px;
@@ -848,13 +1058,21 @@ body.game-open #game-panel {
   justify-content: center;
   gap: 2px;
 }
-.btn-num:hover, .numpad-btn:hover {
-  border-color: #00E5FF;
-  color: #00E5FF;
-  box-shadow: 0 0 10px rgba(0,229,255,0.3);
+.btn-num:hover,
+.numpad-btn:hover {
+  border-color: #00e5ff;
+  color: #00e5ff;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
 }
-.btn-num:disabled, .numpad-btn:disabled { opacity: 0.25; cursor: default; }
-.btn-num.exhausted, .numpad-btn.exhausted { opacity: 0.2; }
+.btn-num:disabled,
+.numpad-btn:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+.btn-num.exhausted,
+.numpad-btn.exhausted {
+  opacity: 0.2;
+}
 
 /* Remaining-count badge */
 .num-badge {
@@ -882,16 +1100,30 @@ body.game-open #game-panel {
 
 /* Mobile tweaks */
 @media (max-width: 500px) {
-  #sudoku-matrix-arena { padding: 10px 10px 16px; gap: 8px; }
-  .sudoku-board { max-width: 100%; }
-  .btn-sudoku-action, .sudoku-btn { font-size: 10px; padding: 7px 10px; }
-  .btn-num, .numpad-btn { font-size: 14px; padding: 8px 0; }
+  #sudoku-matrix-arena {
+    padding: 10px 10px 16px;
+    gap: 8px;
+  }
+  .sudoku-board {
+    max-width: 100%;
+  }
+  .btn-sudoku-action,
+  .sudoku-btn {
+    font-size: 10px;
+    padding: 7px 10px;
+  }
+  .btn-num,
+  .numpad-btn {
+    font-size: 14px;
+    padding: 8px 0;
+  }
 }
-
 
 /* Hide game-tab on mobile */
 @media (max-width: 768px) {
-  #game-tab { display: none !important; }
+  #game-tab {
+    display: none !important;
+  }
 }
 
 /* =========================================
@@ -914,26 +1146,29 @@ body.game-open #game-panel {
   align-items: center;
   width: 100%;
   max-width: 540px;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 14px;
-  color: #00E5FF;
-  text-shadow: 0 0 8px rgba(0,229,255,0.5);
+  color: #00e5ff;
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.5);
   letter-spacing: 0.05em;
 }
-.mine-counter, .mine-time-display {
-  display: flex; align-items: center; gap: 6px;
-  background: rgba(0,0,0,0.4);
-  border: 1px solid rgba(0,229,255,0.25);
+.mine-counter,
+.mine-time-display {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 229, 255, 0.25);
   padding: 5px 12px;
   border-radius: 4px;
 }
 
 /* Restart button in header */
 #btn-mine-restart {
-  background: rgba(0,0,0,0.5);
-  border: 1px solid #00E5FF;
-  color: #00E5FF;
-  font-family: 'Orbitron', sans-serif;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #00e5ff;
+  color: #00e5ff;
+  font-family: "Orbitron", sans-serif;
   font-size: 11px;
   padding: 5px 12px;
   border-radius: 4px;
@@ -942,8 +1177,8 @@ body.game-open #game-panel {
   letter-spacing: 0.04em;
 }
 #btn-mine-restart:hover {
-  background: rgba(0,229,255,0.15);
-  box-shadow: 0 0 10px rgba(0,229,255,0.3);
+  background: rgba(0, 229, 255, 0.15);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
 }
 
 /* ── Difficulty pills (shared .btn-diff, scoped in arena) ── */
@@ -958,26 +1193,30 @@ body.game-open #game-panel {
   justify-content: center;
 }
 #btn-mine-flag-toggle {
-  background: rgba(0,0,0,0.5);
-  border: 1px solid #FFD700;
-  color: #FFD700;
-  font-family: 'Orbitron', sans-serif;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #ffd700;
+  color: #ffd700;
+  font-family: "Orbitron", sans-serif;
   font-size: 12px;
   padding: 7px 16px;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s;
-  display: flex; align-items: center; gap: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 #btn-mine-flag-toggle.active {
-  background: #FFD700;
+  background: #ffd700;
   color: #000;
-  box-shadow: 0 0 12px rgba(255,215,0,0.5);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
 }
-#btn-mine-flag-toggle:hover { opacity: 0.85; }
+#btn-mine-flag-toggle:hover {
+  opacity: 0.85;
+}
 
 .mine-mode-hint {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 10px;
   color: #556;
   letter-spacing: 0.04em;
@@ -995,8 +1234,8 @@ body.game-open #game-panel {
   --cell-size: 32px;
   display: grid;
   gap: 2px;
-  background: rgba(0,229,255,0.15);
-  border: 2px solid rgba(0,229,255,0.4);
+  background: rgba(0, 229, 255, 0.15);
+  border: 2px solid rgba(0, 229, 255, 0.4);
   border-radius: 4px;
   padding: 3px;
   width: max-content;
@@ -1005,47 +1244,49 @@ body.game-open #game-panel {
 
 /* ── Cells ──────────────────────────────── */
 .mine-cell {
-  width:  var(--cell-size);
+  width: var(--cell-size);
   height: var(--cell-size);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: calc(var(--cell-size) * 0.52);
   font-weight: 700;
   border-radius: 3px;
   cursor: pointer;
   user-select: none;
-  transition: background 0.12s, transform 0.1s;
+  transition:
+    background 0.12s,
+    transform 0.1s;
   background: #0d1527;
-  border: 1px solid rgba(0,229,255,0.18);
+  border: 1px solid rgba(0, 229, 255, 0.18);
   -webkit-tap-highlight-color: transparent;
 }
 
 .mine-cell:hover:not(.revealed) {
-  background: rgba(0,229,255,0.14);
+  background: rgba(0, 229, 255, 0.14);
   transform: scale(0.95);
 }
 
 .mine-cell.revealed {
-  background: rgba(255,255,255,0.04);
-  border-color: rgba(0,229,255,0.06);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(0, 229, 255, 0.06);
   cursor: default;
 }
 
 .mine-cell.flagged {
-  background: rgba(255,215,0,0.12);
-  border-color: rgba(255,215,0,0.4);
+  background: rgba(255, 215, 0, 0.12);
+  border-color: rgba(255, 215, 0, 0.4);
 }
 
 .mine-cell.mine {
-  background: rgba(255,0,85,0.18);
-  border-color: #FF0055;
+  background: rgba(255, 0, 85, 0.18);
+  border-color: #ff0055;
 }
 
 .mine-cell.mine-hit {
-  background: #FF0055 !important;
-  box-shadow: 0 0 16px #FF0055;
+  background: #ff0055 !important;
+  box-shadow: 0 0 16px #ff0055;
 }
 
 /* Pop animation on reveal */
@@ -1053,9 +1294,15 @@ body.game-open #game-panel {
   animation: mineCellPop 0.25s ease;
 }
 @keyframes mineCellPop {
-  0%   { transform: scale(1); }
-  40%  { transform: scale(1.18); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.18);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Staggered mine reveal on loss */
@@ -1063,8 +1310,14 @@ body.game-open #game-panel {
   animation: mineReveal 0.3s ease both;
 }
 @keyframes mineReveal {
-  0%   { opacity: 0; transform: scale(0.6); }
-  100% { opacity: 1; transform: scale(1); }
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* Flag pop */
@@ -1072,9 +1325,15 @@ body.game-open #game-panel {
   animation: flagPop 0.3s ease;
 }
 @keyframes flagPop {
-  0%   { transform: scale(1); }
-  50%  { transform: scale(1.3) rotate(-10deg); }
-  100% { transform: scale(1) rotate(0); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3) rotate(-10deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
 }
 
 /* ── Game Over overlay ──────────────────── */
@@ -1082,7 +1341,7 @@ body.game-open #game-panel {
   position: absolute;
   inset: 0;
   z-index: 200;
-  background: rgba(5,8,22,0.95);
+  background: rgba(5, 8, 22, 0.95);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1094,7 +1353,14 @@ body.game-open #game-panel {
 
 /* ── Mobile tweaks ──────────────────────── */
 @media (max-width: 540px) {
-  #minesweeper-arena { padding: 10px 8px 14px; gap: 8px; }
-  .mine-header { font-size: 12px; }
-  .mine-board-wrap { max-width: 100%; }
+  #minesweeper-arena {
+    padding: 10px 8px 14px;
+    gap: 8px;
+  }
+  .mine-header {
+    font-size: 12px;
+  }
+  .mine-board-wrap {
+    max-width: 100%;
+  }
 }

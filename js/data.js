@@ -260,7 +260,7 @@ window.appData.featuredProjects = [
     date: "May 2026 – Present",
     description:
       "QDMS models financial liquidity cascades and shock propagation via Open Quantum System dynamics. It solves the Lindblad Master Equation using Qiskit/QuTiP to simulate market crashes. Built with a FastAPI backend, ML predictors (LSTM/XGBoost), and a React 19 dashboard.",
-    link: "https://givemehat.github.io/Quantum-Dissipative-Market-Simulator-QDMS-/",
+    link: "https://givemehat.github.io/qdms-quantum-market-simulator/",
     image: "assets/qdms_thumbnail.jpg",
     skills: ["Quantum Computing", "Qiskit", "FastAPI", "React 19"],
   },

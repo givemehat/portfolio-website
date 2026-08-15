@@ -1,0 +1,137 @@
+\documentclass[9.5pt,letterpaper]{article}
+
+% ================= PACKAGES =================
+\usepackage[left=0.55in,right=0.55in,top=0.35in,bottom=0.35in]{geometry}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fontawesome5} % Added for icons
+
+\pagestyle{empty}
+\definecolor{accent}{RGB}{20,40,70}
+
+\hypersetup{
+    colorlinks=true,
+    urlcolor=accent,
+    linkcolor=accent,
+    pdftitle={Rajnish Singh - Resume},
+    pdfauthor={Rajnish Singh}
+}
+
+% ================= SECTION FORMAT =================
+\titleformat{\section}
+  {\normalfont\bfseries\normalsize\color{accent}}
+  {}{0em}{}
+  [\vspace{-4pt}\titlerule\vspace{2pt}]
+\titlespacing{\section}{0pt}{5pt}{2pt}
+
+\newenvironment{resumeItemize}{
+  \begin{itemize}[leftmargin=0.14in, itemsep=0pt, parsep=0pt, topsep=1pt, partopsep=0pt, label=\textbullet]
+}{\end{itemize}}
+
+\newcommand{\resumeItem}[1]{\item \small #1}
+
+\newcommand{\resumeHeading}[2]{
+  \noindent\textbf{\small #1} \hfill \small #2 \\[0pt]
+}
+
+\newcommand{\resumeSub}[2]{
+  \noindent\textit{\small #1} \hfill \small #2 \\[1pt]
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\begin{document}
+
+% ================= HEADER =================
+\begin{center}
+    {\LARGE \bfseries Rajnish Singh} \\[4pt]
+    \small
+    Greater Noida, India \; $|$ \; 
+    \faEnvelope \; \href{mailto:rajnisihsingh@gmail.com}{rajnisihsingh@gmail.com} \; $|$ \;
+    \faLinkedin \; \href{https://linkedin.com/in/rajnish-singh-a9a61022a}{linkedin.com/in/rajnish-singh} \; $|$ \;
+    \faGithub \; \href{https://github.com/givemehat}{github.com/givemehat} \\[2pt]
+    \faGlobe \; \href{https://givemehat.github.io/portfolio-website/}{Portfolio Website} \; $|$ \;
+    \faCode \; \href{https://leetcode.com/u/singh_r_rajnish/}{LeetCode} \; $|$ \;
+    \faKaggle \; \href{https://www.kaggle.com/sirrajnish}{Kaggle}
+\end{center}
+\vspace{-4pt}
+
+% ================= PROFILE =================
+\section*{Profile}
+\small B.Tech Computer Science student with hands-on experience in data analysis, AI-driven research workflows, and statistical modeling. IBM Qiskit Advocate and McKinsey Forward Program Learner, applying quantitative and AI tools for synthesis, documentation, and insight generation. Skilled at translating complex technical outputs into structured, decision-ready communication.
+
+% ================= SKILLS =================
+\section*{Technical Skills}
+\begin{resumeItemize}
+  \resumeItem{\textbf{Languages \& Data:} Python (Pandas, NumPy, Scikit-learn), SQL, Statistical Modeling, Feature Engineering}
+  \resumeItem{\textbf{ML / AI:} TensorFlow, PyTorch, LSTM, CNN, Transformers, Agentic AI, RAG, Anthropic Claude API}
+  \resumeItem{\textbf{Quantum Computing:} IBM Qiskit, Grover's \& Shor's Algorithms, Quantum Circuit Design}
+  \resumeItem{\textbf{Web \& Systems:} React 19, Flask, FastAPI, REST APIs, PostgreSQL, Redis, AWS Cloud}
+\end{resumeItemize}
+
+% ================= EDUCATION =================
+\section*{Education}
+\resumeHeading{Gautam Buddha University, Greater Noida}{Aug 2024 -- May 2028}
+\resumeSub{B.Tech in Computer Science \& Engineering -- SGPA: 7.04/10}{Greater Noida, India}
+
+% ================= EXPERIENCE & LEADERSHIP =================
+\section*{Experience \& Leadership}
+
+\resumeHeading{McKinsey \& Company -- Forward Program}{Apr 2026 -- Present}
+\begin{resumeItemize}
+  \resumeItem{Selected for McKinsey.org's competitive Forward Program; applying structured problem-solving and analytics frameworks to real-world business case simulations.}
+\end{resumeItemize}
+
+\resumeHeading{IBM Qiskit Advocate Program}{Mar 2026 -- Present}
+\begin{resumeItemize}
+  \resumeItem{Selected via globally competitive process; contributing to open-source quantum tools, documentation, and educational initiatives.}
+\end{resumeItemize}
+
+\resumeHeading{GirlScript Summer of Code (GSSoC '26)}{May 2026 -- Present}
+\begin{resumeItemize}
+  \resumeItem{Competitively selected Contributor/Mentee across Open Source and AI/Agents tracks, delivering production-grade feature contributions.}
+\end{resumeItemize}
+
+\resumeHeading{AWS Cloud Club \& Google Developer Group -- GBU}{Oct 2025 -- May 2026}
+\begin{resumeItemize}
+  \resumeItem{Co-designed MLOps curricula and led AI/ML hackathons and peer-learning sessions as Core AI/ML Team Member.}
+\end{resumeItemize}
+
+% ================= PROJECTS =================
+\section*{Selected Projects}
+
+\resumeHeading{Quantum Dissipative Market Simulator (QDMS) \; \href{https://github.com/givemehat/Quantum-Dissipative-Market-Simulator-QDMS-}{\faGithub}}{Python, FastAPI, Qiskit}
+\begin{resumeItemize}
+  \resumeItem{Modeled financial liquidity cascades and shock propagation via Open Quantum System dynamics (Lindblad Master Equation) using Qiskit/QuTiP to simulate market crashes.}
+\end{resumeItemize}
+
+\resumeHeading{AI/ML Capstone Project -- IIT Guwahati \; \href{https://drive.google.com/drive/u/1/folders/1zGVdV4yGSP7T_nODbi_nbBGst107jPBY}{\faLink}}{YOLOv8, CNN, Scikit-learn}
+\begin{resumeItemize}
+  \resumeItem{Engineered predictive maintenance classification and advanced computer vision using a fine-tuned YOLOv8n on VisDrone2019 and a custom CNN on Fashion MNIST.}
+\end{resumeItemize}
+
+\resumeHeading{DevPulse -- CLI Productivity Tracker \; \href{https://pypi.org/project/raj-devpulse-cli/}{\faLink}}{Python, SQLite, CLI}
+\begin{resumeItemize}
+  \resumeItem{Developed and published a distraction-free terminal-based productivity tracker with a GitHub-style Activity Heatmap, coding streaks, and local SQLite storage on PyPI.}
+\end{resumeItemize}
+
+% ================= RESEARCH & PUBLICATIONS =================
+\section*{Research \& Publications}
+\begin{resumeItemize}
+  \resumeItem{\textbf{Preprint (Under Review):} \textit{Noise Resilience and Parameter Efficiency of Quantum Classifiers: A Comparative Analysis Using IBM Qiskit 1.x}}
+  \resumeItem{\textbf{Published Book:} \textit{The Prophecy of Faith: A Love Beyond Belief But In Different Manner} \href{https://www.amazon.in/dp/B0HBYX9X5T}{\faAmazon} (Co-authored)}
+  \resumeItem{\textbf{Tech Articles:} \textit{The Invisible Arms Race (6G \& Quantum Military Power)} \href{https://medium.com/@rajnisihsingh}{\faMedium}}
+\end{resumeItemize}
+
+% ================= CERTIFICATIONS =================
+\section*{Certifications}
+\small AWS AI Practitioner (Udacity) \textbullet\ IBM Qiskit Advocate \textbullet\ McKinsey Forward Program \textbullet\ IIT Delhi -- Foundations of Quantum Computing \textbullet\ NPTEL -- Probability in CS
+
+\end{document}

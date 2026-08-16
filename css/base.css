@@ -223,23 +223,24 @@ section {
     position: fixed;
     top: 0;
     left: 0;
-    width: 6px;
-    height: 6px;
-    background: var(--cyan);
+    width: 12px;
+    height: 12px;
+    background: white;
     border-radius: 50%;
     pointer-events: none;
     z-index: 10000;
     transform: translate(-50%, -50%);
-    box-shadow: 0 0 10px var(--cyan);
+    mix-blend-mode: difference;
+    transition: width 0.2s, height 0.2s;
   }
 
   .custom-cursor-follower {
     position: fixed;
     top: 0;
     left: 0;
-    width: 30px;
-    height: 30px;
-    border: 1px solid rgba(0, 229, 255, 0.4);
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
@@ -252,21 +253,22 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 10px;
-    font-weight: 600;
-    color: var(--bg);
+    font-size: 11px;
+    font-weight: 700;
+    color: black;
     text-transform: uppercase;
     letter-spacing: 1px;
-    opacity: 0.6;
+    mix-blend-mode: difference;
+    opacity: 0.8;
   }
 
   .custom-cursor-follower.hover-active {
-    width: 60px;
-    height: 60px;
-    background: var(--text);
-    border-color: var(--text);
+    width: 70px;
+    height: 70px;
+    background: white;
+    border-color: white;
     opacity: 1;
-    mix-blend-mode: normal;
+    mix-blend-mode: difference;
   }
 
   .custom-cursor-follower.hover-active::after {

@@ -683,38 +683,34 @@
         return;
       }
 
-      // Simulate loading state
-      var originalBtnHTML = submitBtn.innerHTML;
-      submitBtn.innerHTML =
-        '<span class="btn-text">Sending...</span><span class="btn-icon">↺</span>';
-      submitBtn.disabled = true;
-
-      setTimeout(function () {
-        // Save to localStorage as a dummy backend
-        var messages = [];
-        try {
-          messages = JSON.parse(
-            localStorage.getItem("__site_messages__") || "[]",
-          );
-        } catch (e) {}
-        messages.push({
-          name: name,
-          email: email,
-          message: message,
-          at: new Date().toISOString(),
-        });
-        try {
-          localStorage.setItem("__site_messages__", JSON.stringify(messages));
-        } catch (e) {}
-
-        form.reset();
-        if (charCounter) charCounter.textContent = "0 / 1000";
-        submitBtn.innerHTML = originalBtnHTML;
-        submitBtn.disabled = false;
-
-        window.showToast &&
-          window.showToast("Message sent! Thank you, " + name + ".", "success");
-      }, 1000);
+      // Real form submission via FormSubmit AJAX
+      fetch("https://formsubmit.co/ajax/rajnisihsingh@gmail.com", {
+          method: "POST",
+          headers: { 
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+              name: name,
+              email: email,
+              message: message,
+              _subject: "New Contact Form Submission from Website!"
+          })
+      })
+      .then(response => response.json())
+      .then(data => {
+          form.reset();
+          if (charCounter) charCounter.textContent = "0 / 1000";
+          submitBtn.innerHTML = originalBtnHTML;
+          submitBtn.disabled = false;
+          
+          window.showToast && window.showToast("Message sent successfully! Thank you, " + name + ".", "success");
+      })
+      .catch(error => {
+          submitBtn.innerHTML = originalBtnHTML;
+          submitBtn.disabled = false;
+          window.showToast && window.showToast("There was an error sending your message. Please try again later.", "error");
+      });
     });
   }
 

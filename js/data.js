@@ -1,6 +1,22 @@
 window.appData = window.appData || {};
 
 window.appData.featuredCertifications = [
+  {
+    title: "Electronics Design Carnival",
+    issuer: "IIIT Delhi & MeitY",
+    date: "July 2026",
+    image: "images/cert_iiitd.png",
+    focus: ["Electronics", "Design"],
+    imgStyle: "border: 2px solid var(--cyan); box-shadow: 0 0 15px rgba(0, 229, 255, 0.6);",
+  },
+  {
+    title: "Summer Analytics 2026",
+    issuer: "IIT Guwahati",
+    date: "Summer 2026",
+    image: "images/cert_iitg.png",
+    focus: ["Data Science", "Machine Learning"],
+    imgStyle: "border: 2px solid var(--cyan); box-shadow: 0 0 15px rgba(0, 229, 255, 0.6);",
+  },
   // 1. Companies
   {
     title: "Fundamentals of Quantum Algorithms",

@@ -283,8 +283,11 @@ body.sidebar-collapsed .sidebar-header {
     backdrop-filter: blur(2px);
   }
   /* No collapsed state on mobile */
+  body.sidebar-collapsed #sidebar .sidebar-poster {
+    display: none;
+  }
   body.sidebar-collapsed {
-    --sidebar-w: 300px;
+    padding-left: var(--sidebar-collapsed-width);
   }
   body.sidebar-collapsed #sidebar {
     width: 300px !important;

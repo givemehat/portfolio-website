@@ -110,13 +110,13 @@
     var submitBtn = document.getElementById("lead-submit");
     if (!overlay) return;
 
-    // Check if already shown this session
-    if (!sessionStorage.getItem("__lead_shown__")) {
-      setTimeout(function () {
-        openModal("lead-overlay");
-        sessionStorage.setItem("__lead_shown__", "1");
-      }, 500);
-    }
+    // Removed auto-popup lead capture modal at user's request
+    // if (!sessionStorage.getItem("__lead_shown__")) {
+    //   setTimeout(function () {
+    //     openModal("lead-overlay");
+    //     sessionStorage.setItem("__lead_shown__", "1");
+    //   }, 500);
+    // }
 
     if (closeBtn) {
       closeBtn.addEventListener("click", function () {

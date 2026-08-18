@@ -425,6 +425,7 @@
 
     function applyTheme(dark) {
       document.body.classList.toggle("dark", dark);
+      document.body.setAttribute("data-theme", dark ? "dark" : "light");
       if (toggleBtn) {
         // Update SVG icon
         toggleBtn.innerHTML = dark

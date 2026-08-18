@@ -340,42 +340,46 @@
     }
   }
 
-  // ---- Visitor Counter (session-based) ----
+  // ---- Visitor Counter ----
   function initVisitorCounter() {
-    var targetCount = 568;
-    try {
-      var savedCount = Number(sessionStorage.getItem("__demo_visits__"));
-      if (savedCount) targetCount = savedCount;
-      targetCount += 1;
-      sessionStorage.setItem("__demo_visits__", targetCount);
-    } catch (e) {
-      targetCount += 1; // Fallback if sessionStorage fails
-    }
     var el1 = document.getElementById("visitor-count");
     var el2 = document.getElementById("footer-visitors");
-
-    // Animate the counter if GSAP is available
-    if (typeof gsap !== "undefined" && (el1 || el2)) {
-      var obj = { count: 0 };
-      gsap.to(obj, {
-        scrollTrigger: {
-          trigger: el1 || el2,
-          start: "top 95%",
-          once: true,
-        },
-        count: targetCount,
-        duration: 2,
-        ease: "power2.out",
-        onUpdate: function () {
-          var formatted = Math.floor(obj.count).toLocaleString();
-          if (el1) el1.textContent = formatted;
-          if (el2) el2.textContent = formatted;
-        },
+    var baseCount = 998; // Starts at 999 (998 + 1)
+    
+    // Fetch real visitor count
+    fetch("https://counterapi.com/api/givemehat/portfolio/up")
+      .then(function(response) { return response.json(); })
+      .then(function(data) {
+        var realCount = data.value + baseCount;
+        animateCounter(realCount);
+      })
+      .catch(function(error) {
+        console.error("Counter API error:", error);
+        animateCounter(baseCount + 1); // fallback
       });
-    } else {
-      var formatted = targetCount.toLocaleString();
-      if (el1) el1.textContent = formatted;
-      if (el2) el2.textContent = formatted;
+
+    function animateCounter(targetCount) {
+      if (typeof gsap !== "undefined" && (el1 || el2)) {
+        var obj = { count: 0 };
+        gsap.to(obj, {
+          scrollTrigger: {
+            trigger: el1 || el2,
+            start: "top 95%",
+            once: true,
+          },
+          count: targetCount,
+          duration: 2.5,
+          ease: "power3.out",
+          onUpdate: function () {
+            var current = Math.floor(obj.count);
+            if (el1) el1.innerText = current;
+            if (el2) el2.innerText = current;
+          },
+        });
+      } else {
+        if (el1) el1.innerText = targetCount;
+        if (el2) el2.innerText = targetCount;
+      }
     }
   }
 

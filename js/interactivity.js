@@ -789,41 +789,89 @@
     var defaultWidth = 260;
     var minWidth = 200;
     var maxWidth = 360;
+    var collapsedWidth = 68;
 
     // Load persisted width from sessionStorage
     var savedWidth = sessionStorage.getItem("__sidebar_width__");
     var w = defaultWidth;
     if (savedWidth) {
       var parsed = parseInt(savedWidth, 10);
-      if (!isNaN(parsed) && parsed >= minWidth && parsed <= maxWidth) {
+      if (!isNaN(parsed) && parsed >= collapsedWidth && parsed <= maxWidth) {
         w = parsed;
       } else {
         sessionStorage.removeItem("__sidebar_width__");
       }
     }
 
-    document.body.style.setProperty("--sidebar-w", w + "px");
+    if (w === collapsedWidth) {
+      document.body.classList.add("sidebar-collapsed");
+      document.body.style.setProperty("--sidebar-w", collapsedWidth + "px");
+    } else {
+      document.body.classList.remove("sidebar-collapsed");
+      document.body.style.setProperty("--sidebar-w", w + "px");
+    }
 
     function updateWidth(w) {
       var safeW = parseInt(w, 10);
-      if (isNaN(safeW) || safeW < minWidth || safeW > maxWidth) {
-        safeW = defaultWidth;
+      if (isNaN(safeW) || safeW < collapsedWidth || safeW > maxWidth) {
+        if (document.body.classList.contains("sidebar-collapsed")) {
+          safeW = collapsedWidth;
+        } else {
+          safeW = defaultWidth;
+        }
       }
       resizer.setAttribute("aria-valuenow", safeW);
       document.body.style.setProperty("--sidebar-w", safeW + "px");
     }
 
+    // Toggle button sync: updates inline style variable when toggle button is clicked
+    var collapseBtn = document.getElementById("sidebar-collapse-btn");
+    if (collapseBtn) {
+      collapseBtn.addEventListener("click", function () {
+        if (window.innerWidth <= 820) {
+          // Mobile: close the drawer!
+          document.body.classList.remove("sidebar-open");
+          var menuBtn = document.getElementById("mobile-menu-btn");
+          if (menuBtn) menuBtn.setAttribute("aria-expanded", "false");
+        } else {
+          // Desktop: collapse/expand sync
+          setTimeout(function () {
+            var isCollapsed =
+              document.body.classList.contains("sidebar-collapsed");
+            if (isCollapsed) {
+              // Collapsed: set style to collapsedWidth
+              updateWidth(collapsedWidth);
+              sessionStorage.setItem("__sidebar_width__", collapsedWidth);
+            } else {
+              // Expanded: restore default or saved width
+              var savedW = sessionStorage.getItem("__sidebar_width__");
+              var w = savedW ? parseInt(savedW, 10) : defaultWidth;
+              if (w === collapsedWidth) w = defaultWidth;
+              updateWidth(w);
+              sessionStorage.setItem("__sidebar_width__", w);
+            }
+          }, 10);
+        }
+      });
+    }
+
     function doDrag(e) {
       var w = startWidth + (e.clientX - startX);
-      if (w < minWidth) {
+      if (w < 150) {
+        // Snap to fully collapsed
+        document.body.classList.add("sidebar-collapsed");
+        updateWidth(collapsedWidth);
+      } else if (w >= 150 && w < minWidth) {
         // Snaps to minWidth
+        document.body.classList.remove("sidebar-collapsed");
         updateWidth(minWidth);
-        indicator.style.background = "var(--violet)";
       } else if (w > maxWidth) {
         // Snaps to maxWidth
         updateWidth(maxWidth);
+        // Haptic boundary limit pulse color shift
         indicator.style.background = "var(--violet)";
       } else {
+        document.body.classList.remove("sidebar-collapsed");
         updateWidth(w);
         indicator.style.background = "var(--cyan)";
       }
@@ -839,7 +887,7 @@
         document.body.style.getPropertyValue("--sidebar-w"),
         10,
       );
-      if (isNaN(currentW) || currentW < minWidth || currentW > maxWidth) {
+      if (isNaN(currentW) || currentW < collapsedWidth || currentW > maxWidth) {
         currentW = defaultWidth;
       }
       sessionStorage.setItem("__sidebar_width__", currentW);

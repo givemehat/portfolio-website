@@ -1,0 +1,4 @@
+.DS_Store
+fix_*.py
+dist/
+node_modules/

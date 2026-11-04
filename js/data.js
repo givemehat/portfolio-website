@@ -263,6 +263,51 @@ window.appData.certifications = [];
 
 window.appData.featuredProjects = [
   {
+    title: "VolVantage: Institutional NIFTY Volatility Engine",
+    date: "2026 • Live on GitHub Pages",
+    description:
+      "Institutional volatility forecasting engine benchmarking HAR, Sector-HAR, and LightGBM over 3+ years of 5-min tick data using Diebold-Mariano testing. Features an options short-strangle liquidity screener evaluating 50+ strikes in <15ms via embedded DuckDB and FastAPI.",
+    link: "https://givemehat.github.io/nifty-volatility-options-engine/",
+    image: "assets/qdms_thumbnail.jpg",
+    skills: ["Quantitative Finance", "LightGBM", "DuckDB", "FastAPI", "Streamlit", "Diebold-Mariano"],
+  },
+  {
+    title: "Quantum Dissipative Market Simulator (QDMS)",
+    date: "May 2026 – Present",
+    description:
+      "QDMS models financial liquidity cascades and shock propagation via Open Quantum System dynamics. It solves the Lindblad Master Equation using Qiskit/QuTiP to simulate market crashes. Built with a FastAPI backend, ML predictors (LSTM/XGBoost), and a React 19 dashboard streaming real-time risk heatmaps.",
+    link: "https://givemehat.github.io/qdms-quantum-market-simulator/",
+    image: "assets/qdms_thumbnail.jpg",
+    skills: ["Quantum Computing", "Qiskit", "QuTiP", "FastAPI", "React 19"],
+  },
+  {
+    title: "HyPQ-Mess: Hybrid Post-Quantum Messaging",
+    date: "2026 • PQC Standards",
+    description:
+      "Quantum-safe authenticated messaging protocol integrating classical X25519 with NIST-standardized ML-KEM-768 (Kyber) and AES-256-GCM encryption. Provides dual-layer forward secrecy against classical interception and future cryptanalytic quantum attacks.",
+    link: "https://github.com/givemehat/quantum-project-1",
+    image: "assets/projects/quantum.jpg",
+    skills: ["Post-Quantum Cryptography", "ML-KEM-768", "Kyber", "C++", "Python", "AES-GCM"],
+  },
+  {
+    title: "QTerm: Quantum Circuit Simulator",
+    date: "Published on PyPI",
+    description:
+      "Pure NumPy-powered terminal quantum circuit and matrix statevector simulator. Features 48 comprehensive unit tests, interactive terminal circuit visualization, and published package distribution on PyPI.",
+    link: "https://pypi.org/project/QTerm/",
+    image: "assets/projects/quantum.jpg",
+    skills: ["Quantum Computing", "NumPy", "PyPI", "Unit Testing", "Python"],
+  },
+  {
+    title: "HabitFlow: Native macOS Habit Tracker",
+    date: "2026 • macOS Native",
+    description:
+      "Native, lightweight, and privacy-first macOS habit tracker with desktop widgets, GitHub-style contribution heatmaps, local-first SwiftData storage, and Apple Charts analytics. Strictly adheres to Apple Human Interface Guidelines.",
+    link: "https://github.com/givemehat/habitflow",
+    image: "assets/projects/devpulse.jpg",
+    skills: ["Swift", "SwiftData", "Apple Charts", "macOS", "Desktop Widgets"],
+  },
+  {
     title: "AI/ML Capstone Project - IIT Guwahati",
     date: "Completed",
     description:
@@ -270,15 +315,6 @@ window.appData.featuredProjects = [
     link: "https://drive.google.com/drive/u/1/folders/1zGVdV4yGSP7T_nODbi_nbBGst107jPBY",
     image: "assets/aiml_capstone.jpg",
     skills: ["Machine Learning", "YOLOv8", "CNN", "K-Means", "Regression"],
-  },
-  {
-    title: "Quantum Dissipative Market Simulator (QDMS)",
-    date: "May 2026 – Present",
-    description:
-      "QDMS models financial liquidity cascades and shock propagation via Open Quantum System dynamics. It solves the Lindblad Master Equation using Qiskit/QuTiP to simulate market crashes. Built with a FastAPI backend, ML predictors (LSTM/XGBoost), and a React 19 dashboard.",
-    link: "https://givemehat.github.io/qdms-quantum-market-simulator/",
-    image: "assets/qdms_thumbnail.jpg",
-    skills: ["Quantum Computing", "Qiskit", "FastAPI", "React 19"],
   },
   {
     title: "DevPulse - CLI Productivity Tracker",

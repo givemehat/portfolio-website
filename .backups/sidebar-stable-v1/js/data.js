@@ -320,11 +320,6 @@ window.appData.githubUser = "givemehat";
 window.appData.results = [
   { title: "Semester 1 Result", image: "assets/results/sem1.png" },
   { title: "Semester 2 Result", image: "assets/results/sem2.png" },
-  { title: "Sem 2 Back (Electronics)", image: "assets/results/sem2_back1.png" },
-  {
-    title: "Sem 2 Back (Eng. Physics)",
-    image: "assets/results/sem2_back2.png",
-  },
   { title: "Semester 3 Result", image: "assets/results/sem3.png" },
   { title: "Semester 4 Result", image: "assets/results/sem4.png" },
 ];

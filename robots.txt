@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://givemehat.github.io/portfolio-website/sitemap.xml

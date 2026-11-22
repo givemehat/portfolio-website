@@ -1,6 +1,22 @@
 window.appData = window.appData || {};
 
 window.appData.featuredCertifications = [
+  {
+    title: "Electronics Design Carnival",
+    issuer: "IIIT Delhi & MeitY",
+    date: "July 2026",
+    image: "images/cert_iiitd.png",
+    focus: ["Electronics", "Design"],
+    imgStyle: "border: 2px solid var(--cyan); box-shadow: 0 0 15px rgba(0, 229, 255, 0.6);",
+  },
+  {
+    title: "Summer Analytics 2026",
+    issuer: "IIT Guwahati",
+    date: "Summer 2026",
+    image: "images/cert_iitg.png",
+    focus: ["Data Science", "Machine Learning"],
+    imgStyle: "border: 2px solid var(--cyan); box-shadow: 0 0 15px rgba(0, 229, 255, 0.6);",
+  },
   // 1. Companies
   {
     title: "Fundamentals of Quantum Algorithms",
@@ -247,16 +263,63 @@ window.appData.certifications = [];
 
 window.appData.featuredProjects = [
   {
+    title: "VolVantage: Institutional NIFTY Volatility Engine",
+    date: "2026 • Live on GitHub Pages",
+    description:
+      "Institutional volatility forecasting engine benchmarking HAR, Sector-HAR, and LightGBM over 3+ years of 5-min tick data using Diebold-Mariano testing. Features an options short-strangle liquidity screener evaluating 50+ strikes in <15ms via embedded DuckDB and FastAPI.",
+    link: "https://givemehat.github.io/nifty-volatility-options-engine/",
+    image: "assets/qdms_thumbnail.jpg",
+    skills: ["Quantitative Finance", "LightGBM", "DuckDB", "FastAPI", "Streamlit", "Diebold-Mariano"],
+  },
+  {
     title: "Quantum Dissipative Market Simulator (QDMS)",
     date: "May 2026 – Present",
     description:
-      "QDMS models financial risk as an Open Quantum System. Using Qiskit/QuTiP, it solves the Lindblad Master Equation to simulate market crashes as quantum dissipation and decoherence. Built with a FastAPI backend and a React 19 dashboard, it streams on live time state fidelity and risk heatmaps.",
-    link: "https://github.com/givemehat/Quantum-Dissipative-Market-Simulator-QDMS-",
-    skills: ["Quantum Computing", "Python"],
+      "QDMS models financial liquidity cascades and shock propagation via Open Quantum System dynamics. It solves the Lindblad Master Equation using Qiskit/QuTiP to simulate market crashes. Built with a FastAPI backend, ML predictors (LSTM/XGBoost), and a React 19 dashboard streaming real-time risk heatmaps.",
+    link: "https://givemehat.github.io/qdms-quantum-market-simulator/",
+    image: "assets/qdms_thumbnail.jpg",
+    skills: ["Quantum Computing", "Qiskit", "QuTiP", "FastAPI", "React 19"],
+  },
+  {
+    title: "HyPQ-Mess: Hybrid Post-Quantum Messaging",
+    date: "2026 • PQC Standards",
+    description:
+      "Quantum-safe authenticated messaging protocol integrating classical X25519 with NIST-standardized ML-KEM-768 (Kyber) and AES-256-GCM encryption. Provides dual-layer forward secrecy against classical interception and future cryptanalytic quantum attacks.",
+    link: "https://github.com/givemehat/quantum-project-1",
+    image: "assets/projects/quantum.jpg",
+    skills: ["Post-Quantum Cryptography", "ML-KEM-768", "Kyber", "C++", "Python", "AES-GCM"],
+  },
+  {
+    title: "QTerm: Quantum Circuit Simulator",
+    date: "Published on PyPI",
+    description:
+      "Pure NumPy-powered terminal quantum circuit and matrix statevector simulator. Features 48 comprehensive unit tests, interactive terminal circuit visualization, and published package distribution on PyPI.",
+    link: "https://pypi.org/project/QTerm/",
+    image: "assets/projects/quantum.jpg",
+    skills: ["Quantum Computing", "NumPy", "PyPI", "Unit Testing", "Python"],
+  },
+  {
+    title: "HabitFlow: Native macOS Habit Tracker",
+    date: "2026 • macOS Native",
+    description:
+      "Native, lightweight, and privacy-first macOS habit tracker with desktop widgets, GitHub-style contribution heatmaps, local-first SwiftData storage, and Apple Charts analytics. Strictly adheres to Apple Human Interface Guidelines.",
+    link: "https://github.com/givemehat/habitflow",
+    image: "assets/projects/devpulse.jpg",
+    skills: ["Swift", "SwiftData", "Apple Charts", "macOS", "Desktop Widgets"],
+  },
+  {
+    title: "AI/ML Capstone Project - IIT Guwahati",
+    date: "Completed",
+    description:
+      "A comprehensive Machine Learning and AI capstone consisting of 5 major tasks: Predictive Maintenance Classification (LogReg, Decision Tree), Gas Turbine Regression, Palmer Penguins Clustering (K-Means), and Advanced Computer Vision using a fine-tuned YOLOv8n on VisDrone2019 and a custom CNN on Fashion MNIST.",
+    link: "https://drive.google.com/drive/u/1/folders/1zGVdV4yGSP7T_nODbi_nbBGst107jPBY",
+    image: "assets/aiml_capstone.jpg",
+    skills: ["Machine Learning", "YOLOv8", "CNN", "K-Means", "Regression"],
   },
   {
     title: "DevPulse - CLI Productivity Tracker",
     date: "Published / v1.0.4",
+    image: "assets/projects/devpulse.jpg",
     description:
       "A lightweight, distraction-free terminal-based productivity tracker. Features include a GitHub-style Activity Heatmap, Session Timer, Coding Streaks, Weekly Summaries, and local SQLite storage. Install via `pip install raj-devpulse-cli` and run `devpulse stats`.",
     link: "https://pypi.org/project/raj-devpulse-cli/",
@@ -265,6 +328,7 @@ window.appData.featuredProjects = [
   {
     title: "Human Temporal Prediction Under Uncertainty",
     date: "Jul 2026",
+    image: "assets/projects/human_temporal.jpg",
     description:
       "Data collected from 6 participants across UNO rounds to analyze behavior under uncertainty. Evaluated 'Experienced' vs 'No Mercy' precursor rounds using statistical and ML models. This served as a pilot/proof of concept for predicting temporal outcomes and human decision-making under hidden information constraints.",
     link: "#",
@@ -274,6 +338,7 @@ window.appData.featuredProjects = [
     title:
       "Restoring Damaged Indian Folk Art Using Deep Learning: An AI-Driven Framework for Cultural Heritage Preservation",
     date: "Under Review",
+    image: "assets/projects/indian_art.jpg",
     description:
       "Research paper on restoring damaged Indian folk art using deep learning. Co-authored with Utkrisht Patel.",
     link: "#",
@@ -283,6 +348,7 @@ window.appData.featuredProjects = [
     title:
       "Noise Resilience and Parameter Efficiency of Quantum Classifiers: A Comparative Analysis Using IBM Qiskit 1.x",
     date: "Completed",
+    image: "assets/projects/quantum.jpg",
     description:
       "Research paper evaluating the parameter efficiency and noise resilience of quantum classifiers using Qiskit. Co-authored with Utkrisht Patel and Dr. Rakesh Kumar Yadav (Associate Professor, Gautam Buddha University).",
     link: "#",
@@ -292,6 +358,7 @@ window.appData.featuredProjects = [
     title:
       "The Prophecy of Faith: A Love Beyond Belief But In Different Manner",
     date: "Published: 28 July 2026",
+    image: "assets/projects/prophecy.jpg",
     description:
       "In the dusty lanes of Sultanpur, where prophecy is spoken before love is confessed, Aditya and Srivelli find each other only to be told their Rashi's are fatally incompatible. A literary tragedy about love, friendship, and the grief of knowing an ending before it arrives. Co-authored with Shagun Raghuwanshi.",
     link: "https://www.amazon.in/dp/B0HBYX9X5T",
@@ -300,6 +367,7 @@ window.appData.featuredProjects = [
   {
     title: "GSSoC 2026 Contributor / Mentee",
     date: "2026",
+    image: "assets/projects/open_source.jpg",
     description:
       "Selected as a Contributor and Mentee for GirlScript Summer of Code (GSSoC) 2026 in the Open Source + AI/Agents Track. Actively contributing, learning, and collaborating with amazing developers in the open-source AI community.",
     link: "https://lnkd.in/geJgNZ7t",
@@ -308,10 +376,20 @@ window.appData.featuredProjects = [
   {
     title: "SSoC Season 5 Contributor",
     date: "2026",
+    image: "assets/projects/open_source.jpg",
     description:
       "Selected as a Contributor for Social Summer of Code (SSoC) Season 5, India's largest open source program. Contributing to real projects, learning from mentors, and shipping code that matters.",
     link: "https://lnkd.in/gHNU23YS",
     skills: ["Open Source", "SSoC", "Mentorship"],
+  },
+  {
+    title: "Qiskit Community Tools",
+    date: "Active",
+    description:
+      "Open-source contributions to Qiskit ecosystem tooling and educational resources.",
+    link: "https://github.com/givemehat",
+    image: "assets/projects/quantum.jpg",
+    skills: ["Python", "Qiskit", "Jupyter"],
   },
 ];
 
@@ -320,11 +398,6 @@ window.appData.githubUser = "givemehat";
 window.appData.results = [
   { title: "Semester 1 Result", image: "assets/results/sem1.png" },
   { title: "Semester 2 Result", image: "assets/results/sem2.png" },
-  { title: "Sem 2 Back (Electronics)", image: "assets/results/sem2_back1.png" },
-  {
-    title: "Sem 2 Back (Eng. Physics)",
-    image: "assets/results/sem2_back2.png",
-  },
   { title: "Semester 3 Result", image: "assets/results/sem3.png" },
   { title: "Semester 4 Result", image: "assets/results/sem4.png" },
 ];

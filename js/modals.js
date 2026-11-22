@@ -72,15 +72,11 @@
     }
     if (submitBtn) {
       submitBtn.addEventListener("click", function () {
-        var u = document.getElementById("login-user").value.trim();
-        var p = document.getElementById("login-phone").value.trim();
         var err = document.getElementById("login-error");
-        // Demo credentials
-        if (u === "Rajnish Singh" && p === "8920801616@123") {
-          closeModal("login-overlay");
-          if (window.enterAdminMode) window.enterAdminMode();
-        } else {
-          if (err) err.style.display = "block";
+        if (err) {
+          err.textContent =
+            "Admin editing is disabled in this public static build. Use an authenticated CMS or local development environment.";
+          err.style.display = "block";
         }
       });
     }
@@ -110,13 +106,13 @@
     var submitBtn = document.getElementById("lead-submit");
     if (!overlay) return;
 
-    // Check if already shown this session
-    if (!sessionStorage.getItem("__lead_shown__")) {
-      setTimeout(function () {
-        openModal("lead-overlay");
-        sessionStorage.setItem("__lead_shown__", "1");
-      }, 500);
-    }
+    // Removed auto-popup lead capture modal at user's request
+    // if (!sessionStorage.getItem("__lead_shown__")) {
+    //   setTimeout(function () {
+    //     openModal("lead-overlay");
+    //     sessionStorage.setItem("__lead_shown__", "1");
+    //   }, 500);
+    // }
 
     if (closeBtn) {
       closeBtn.addEventListener("click", function () {

@@ -196,13 +196,39 @@
   // ===== SAVE / LOAD CONTENT =====
   var CONTENT_KEY = "__site_content__";
 
+  function sanitizeStoredHtml(value) {
+    var template = document.createElement("template");
+    template.innerHTML = typeof value === "string" ? value : "";
+    var allowedTags = {
+      B: true,
+      BR: true,
+      EM: true,
+      I: true,
+      S: true,
+      SPAN: true,
+      STRONG: true,
+      U: true,
+    };
+
+    template.content.querySelectorAll("*").forEach(function (element) {
+      if (!allowedTags[element.tagName]) {
+        element.replaceWith(document.createTextNode(element.textContent || ""));
+        return;
+      }
+      Array.from(element.attributes).forEach(function (attribute) {
+        element.removeAttribute(attribute.name);
+      });
+    });
+    return template.innerHTML;
+  }
+
   function saveContent() {
     var data = { staticText: {}, grids: {} };
 
     // Save all static [data-editable-id] fields
     document.querySelectorAll("[data-editable-id]").forEach(function (el) {
       var id = el.getAttribute("data-editable-id");
-      data.staticText[id] = el.innerHTML;
+      data.staticText[id] = sanitizeStoredHtml(el.innerHTML);
     });
 
     // Save card grids
@@ -262,7 +288,7 @@
     if (data.staticText) {
       Object.keys(data.staticText).forEach(function (id) {
         var el = document.querySelector('[data-editable-id="' + id + '"]');
-        if (el) el.innerHTML = data.staticText[id];
+        if (el) el.innerHTML = sanitizeStoredHtml(data.staticText[id]);
       });
     }
 
